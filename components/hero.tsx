@@ -24,14 +24,6 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center max-w-3xl">
-        {/* System tag */}
-        <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border bg-background/80 backdrop-blur-sm px-5 py-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-          <span className="text-[11px] font-mono text-muted-foreground tracking-[0.15em] uppercase">
-            tape.systems
-          </span>
-        </div>
-
         {/* Hero tape diagram */}
         <div className="w-full max-w-xl mb-8">
           <HeroTapeDiagram />
@@ -43,10 +35,30 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed text-center text-pretty max-w-md whitespace-pre-line">
-          {t("hero.subtitle")}
+        <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed text-center text-pretty max-w-md">
+          <span>{t("hero.subtitle.line1")}</span>
+          <br />
+          <span>
+            {t("hero.subtitle.line2Prefix")}
+            <a
+              href="https://bub.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors"
+            >
+              bub.build
+            </a>
+            {t("hero.subtitle.line2Between")}
+            <a
+              href="https://github.com/bubbuild/bub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors"
+            >
+              {t("hero.subtitle.source")}
+            </a>
+          </span>
         </p>
-
         {/* CTA */}
         <a
           href="#reading-path"

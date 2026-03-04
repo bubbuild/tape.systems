@@ -129,14 +129,14 @@ function CompactDiagram() {
 
       {/* Annotations */}
       <text x="150" y={95} textAnchor="middle" className="fill-muted-foreground/40 text-[9px] font-mono">
-        {locale === "zh" ? "保留但不入默认窗口" : "preserved but not in default view"}
+        {locale === "zh" ? "保留但不入默认窗" : "preserved, not in view"}
       </text>
       <path d="M 40 82 L 260 82" className="stroke-muted-foreground/20" strokeWidth="0.8" />
       <line x1="40" y1="78" x2="40" y2="86" className="stroke-muted-foreground/20" strokeWidth="0.8" />
       <line x1="260" y1="78" x2="260" y2="86" className="stroke-muted-foreground/20" strokeWidth="0.8" />
 
       <text x="430" y={95} textAnchor="middle" className="fill-accent text-[9px] font-mono">
-        {locale === "zh" ? "默认读取集（缩小后）" : "default read set (shrunk)"}
+        {locale === "zh" ? "默认读取集（缩小）" : "default read set"}
       </text>
       <path d="M 310 82 L 590 82" className="stroke-accent/40" strokeWidth="0.8" />
       <line x1="310" y1="78" x2="310" y2="86" className="stroke-accent/40" strokeWidth="0.8" />
@@ -196,7 +196,7 @@ function SummaryDiagram() {
 
       {/* Annotation */}
       <text x="200" y="140" textAnchor="middle" className="fill-muted-foreground/40 text-[8px] font-mono">
-        {locale === "zh" ? "原始 entries（可回跳）" : "raw entries (can jump back)"}
+        {locale === "zh" ? "原始 entries（可回跳）" : "raw entries (jump back)"}
       </text>
     </svg>
   )

@@ -41,7 +41,6 @@ export function ReadingPath() {
         <SectionHeader
           number="00"
           title={t("path.title")}
-          subtitle={t("path.subtitle")}
         />
         <div className="mt-2">
           <ReadingFlowDiagram />
@@ -55,11 +54,11 @@ function ReadingFlowDiagram() {
   const { locale } = useI18n()
 
   const layers = [
-    { num: "01", en: "Fact Layer", zh: "事实层", detail: "Append", fill: "fill-foreground" },
-    { num: "02", en: "Phase Layer", zh: "阶段层", detail: "Anchor + Handoff", fill: "fill-foreground/80" },
-    { num: "03", en: "Session Layer", zh: "会话层", detail: "Single / Multi / Isolation", fill: "fill-foreground/60" },
-    { num: "04", en: "Strategy Layer", zh: "策略层", detail: "Compact / Summary / Memory", fill: "fill-foreground/45" },
-    { num: "05", en: "Advanced", zh: "高级层", detail: "Fork / Merge", fill: "fill-accent" },
+    { num: "01", en: "Fact", zh: "事实", detail: "Append", fill: "fill-foreground" },
+    { num: "02", en: "Phase", zh: "阶段", detail: "Anchor + Handoff", fill: "fill-foreground/80" },
+    { num: "03", en: "Session", zh: "会话", detail: "Single / Multi / Isolation", fill: "fill-foreground/60" },
+    { num: "04", en: "Strategy", zh: "策略", detail: "Compact / Summary / Memory", fill: "fill-foreground/45" },
+    { num: "05", en: "Advanced", zh: "高级", detail: "Fork / Merge", fill: "fill-accent" },
   ]
 
   return (

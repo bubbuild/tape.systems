@@ -91,7 +91,7 @@ function SingleSessionDiagram() {
 
       {/* Time label */}
       <text x="400" y={85} textAnchor="middle" className="fill-muted-foreground/40 text-[9px] font-mono">
-        {locale === "zh" ? "所有 entry 在同一 timeline 增长" : "all entries grow on the same timeline"}
+        {locale === "zh" ? "entry 共用一条时间线" : "entries share one timeline"}
       </text>
     </svg>
   )

@@ -119,7 +119,7 @@ function AppendDiagram() {
       <line x1="160" y1="156" x2="435" y2="156" className="stroke-accent" strokeWidth="1.5" markerEnd="url(#s-arr)" />
       <text x="300" y="148" textAnchor="middle" className="fill-accent text-[10px] font-mono">append(correction_103)</text>
       <text x="300" y="178" textAnchor="middle" className="fill-accent/50 text-[8px] font-mono">
-        {locale === "zh" ? "修正 101, 不删除 101" : "corrects 101, does not delete 101"}
+        {locale === "zh" ? "修正 101，保留 101" : "corrects 101; keeps 101"}
       </text>
 
       {/* Tape state */}

@@ -17,21 +17,29 @@ const translations: Translations = {
 
   // Hero
   "hero.tagline": {
-    zh: "上下文即架构",
-    en: "Context as Architecture",
+    zh: "Tape 即上下文",
+    en: "Tape as Context",
   },
-  "hero.subtitle": {
-    zh: "Append, Anchor, Handoff, Fork/Merge\n一个用于上下文管理的统一模型",
-    en: "Append, Anchor, Handoff, Fork/Merge\nA unified model for context management",
+  "hero.subtitle.line1": {
+    zh: "Append, Anchor, Handoff, Fork/Merge",
+    en: "Append, Anchor, Handoff, Fork/Merge",
+  },
+  "hero.subtitle.line2Prefix": {
+    zh: "",
+    en: "A unified context model behind ",
+  },
+  "hero.subtitle.line2Between": {
+    zh: " 背后的统一上下文模型，",
+    en: ", ",
+  },
+  "hero.subtitle.source": {
+    zh: "查看源码",
+    en: "view source",
   },
   "hero.cta": { zh: "开始探索", en: "Explore" },
 
   // Reading path
   "path.title": { zh: "阅读路径", en: "Reading Path" },
-  "path.subtitle": {
-    zh: "从事实追加到执行隔离，五层递进",
-    en: "Five layers, from fact appending to execution isolation",
-  },
 
   // Minimal Model
   "model.title": { zh: "最小模型", en: "The Minimal Model" },
@@ -128,18 +136,18 @@ const translations: Translations = {
   },
   "session.single.title": { zh: "单会话", en: "Single Session" },
   "session.single.desc": {
-    zh: "所有 entry 在同一时间线上增长",
-    en: "All entries grow on one timeline",
+    zh: "entry 共用一条时间线",
+    en: "Entries share one timeline",
   },
   "session.multi.title": { zh: "多轮会话", en: "Multi-turn" },
   "session.multi.desc": {
-    zh: "以最近 anchor 为起点按需装配",
-    en: "Assembled on demand from the latest anchor",
+    zh: "从最近 anchor 装配",
+    en: "Assembled from latest anchor",
   },
   "session.isolated.title": { zh: "多会话隔离", en: "Multi-session" },
   "session.isolated.desc": {
-    zh: "独立时间线，跨会话检索需主动选择",
-    en: "Independent timelines; cross-session retrieval is opt-in",
+    zh: "独立时间线，跨会话需选择",
+    en: "Independent timelines; cross-session is opt-in",
   },
 
   // Strategies
@@ -158,12 +166,12 @@ const translations: Translations = {
     en: "handoff + anchor + selective view",
   },
   "compact.key": {
-    zh: "compact \u2260 删除历史 = 缩小默认读取集",
-    en: "compact \u2260 delete history = shrink the default read set",
+    zh: "compact \u2260 删除历史；缩小默认读取集",
+    en: "compact \u2260 delete history; shrink default read set",
   },
   "summary.title": { zh: "Summary", en: "Summary" },
   "summary.problem": {
-    zh: "需要高层概览驱动下一阶段",
+    zh: "需要高阶概览驱动下一阶段",
     en: "Need a high-level overview for the next phase",
   },
   "summary.solution": {
@@ -171,8 +179,8 @@ const translations: Translations = {
     en: "anchor.state + provenance",
   },
   "summary.key": {
-    zh: "摘要必须指向来源区间，仅作执行提示",
-    en: "Summaries must cite source ranges; hints only, never audit truth",
+    zh: "摘要需指向来源区间，仅作执行提示",
+    en: "Summaries cite sources; hints only",
   },
   "memory.title": { zh: "Memory", en: "Memory" },
   "memory.problem": {
@@ -184,15 +192,15 @@ const translations: Translations = {
     en: "derived index + raw reload",
   },
   "memory.key": {
-    zh: "索引失效不破坏正确性，命中后必须回读原始事实",
-    en: "Index failures don\u2019t break correctness; hits must reload raw facts",
+    zh: "索引失效不破坏正确性；命中后回读原始事实",
+    en: "Index failures ok; hits reload raw facts",
   },
 
   // Fork/Merge
   "fork.title": { zh: "Fork / Merge", en: "Fork / Merge" },
   "fork.subtitle": {
-    zh: "执行隔离与合流 \u2014 最复杂的一层",
-    en: "Execution isolation & convergence \u2014 the most complex layer",
+    zh: "执行隔离与合流 \u2014 最复杂的部分",
+    en: "Execution isolation & convergence \u2014 the most complex part",
   },
   "fork.why.title": { zh: "复杂性", en: "Why Complex" },
   "fork.why.1": {
@@ -207,13 +215,6 @@ const translations: Translations = {
     zh: "需明确冲突与去重策略",
     en: "Explicit conflict & dedup strategies required",
   },
-
-  // Summary table
-  "table.title": { zh: "机制映射", en: "Mechanism Map" },
-  "table.topic": { zh: "主题", en: "Topic" },
-  "table.mechanisms": { zh: "机制组合", en: "Mechanisms" },
-  "table.factChange": { zh: "事实层变更?", en: "Facts Changed?" },
-  "table.traceability": { zh: "可追溯性", en: "Traceability" },
 
   // Conclusion
   "conclusion.title": { zh: "结论", en: "Conclusion" },

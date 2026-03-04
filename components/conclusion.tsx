@@ -5,12 +5,13 @@ import { SectionHeader } from "./reading-path"
 
 export function Conclusion() {
   const { t, locale } = useI18n()
+  const refBase = locale === "zh" ? "https://psiace.me/zh/posts" : "https://psiace.me/posts"
 
   return (
     <section className="py-20 md:py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="09"
+          number="08"
           title={t("conclusion.title")}
           subtitle={t("conclusion.text")}
         />
@@ -27,13 +28,13 @@ export function Conclusion() {
           </div>
           <div className="flex flex-col gap-3">
             {[
-              { key: "ref.1", url: "https://psiace.me/zh/posts/carpenter-hammer-nail/" },
-              { key: "ref.2", url: "https://psiace.me/zh/posts/prometheus-bound/" },
-              { key: "ref.3", url: "https://psiace.me/zh/posts/reinvent-the-punch-tape/" },
+              { key: "ref.1", slug: "carpenter-hammer-nail" },
+              { key: "ref.2", slug: "prometheus-bound" },
+              { key: "ref.3", slug: "reinvent-the-punch-tape" },
             ].map((ref, i) => (
               <a
                 key={ref.key}
-                href={ref.url}
+                href={`${refBase}/${ref.slug}/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-background/60 hover:text-background transition-colors"
@@ -58,22 +59,22 @@ function ConclusionDiagram() {
   const steps = [
     {
       num: "01",
-      label: locale === "zh" ? "定义事实层" : "Define Fact Layer",
+      label: locale === "zh" ? "定义事实" : "Define Facts",
       detail: "tape / append",
     },
     {
       num: "02",
-      label: locale === "zh" ? "定义阶段边界" : "Define Phase Boundaries",
+      label: locale === "zh" ? "阶段边界" : "Phase Boundaries",
       detail: "anchor / handoff",
     },
     {
       num: "03",
-      label: locale === "zh" ? "定义装配策略" : "Define Assembly Strategies",
+      label: locale === "zh" ? "装配策略" : "Assembly Strategy",
       detail: "compact / summary / memory",
     },
     {
       num: "04",
-      label: locale === "zh" ? "处理高阶执行" : "Handle Advanced Execution",
+      label: locale === "zh" ? "高阶执行" : "Advanced Execution",
       detail: "fork / merge",
     },
   ]

@@ -11,36 +11,36 @@ export function Teams() {
       <div className="mx-auto max-w-4xl">
         <SectionHeader
           number="08"
-          title={t("multi.title")}
-          subtitle={t("multi.subtitle")}
+          title={t("teams.title")}
+          subtitle={t("teams.subtitle")}
         />
 
         <div className="flex flex-col gap-8">
           <div className="rounded-xl border border-border bg-card overflow-hidden">
             <div className="px-5 pt-5 pb-2 flex items-baseline gap-3">
               <span className="text-xs font-mono text-muted-foreground/50">A</span>
-              <h3 className="text-sm font-mono font-semibold text-foreground">{t("multi.shared.title")}</h3>
-              <p className="text-xs text-muted-foreground">{t("multi.shared.desc")}</p>
+              <h3 className="text-sm font-mono font-semibold text-foreground">{t("teams.shared.title")}</h3>
+              <p className="text-xs text-muted-foreground">{t("teams.shared.desc")}</p>
             </div>
             <div className="p-4 md:px-8 md:pb-4">
               <SharedTapeDiagram />
             </div>
             <div className="px-5 pb-5">
-              <p className="text-[11px] font-mono text-muted-foreground/70">{t("multi.shared.note")}</p>
+              <p className="text-[11px] font-mono text-muted-foreground/70">{t("teams.shared.note")}</p>
             </div>
           </div>
 
           <div className="rounded-xl border border-border bg-card overflow-hidden">
             <div className="px-5 pt-5 pb-2 flex items-baseline gap-3">
               <span className="text-xs font-mono text-muted-foreground/50">B</span>
-              <h3 className="text-sm font-mono font-semibold text-foreground">{t("multi.cross.title")}</h3>
-              <p className="text-xs text-muted-foreground">{t("multi.cross.desc")}</p>
+              <h3 className="text-sm font-mono font-semibold text-foreground">{t("teams.cross.title")}</h3>
+              <p className="text-xs text-muted-foreground">{t("teams.cross.desc")}</p>
             </div>
             <div className="p-4 md:px-8 md:pb-4">
               <CrossTapeDiagram />
             </div>
             <div className="px-5 pb-5">
-              <p className="text-[11px] font-mono text-muted-foreground/70">{t("multi.cross.note")}</p>
+              <p className="text-[11px] font-mono text-muted-foreground/70">{t("teams.cross.note")}</p>
             </div>
           </div>
         </div>

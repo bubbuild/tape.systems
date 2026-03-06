@@ -11,7 +11,7 @@ export function Conclusion() {
     <section className="py-20 md:py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="08"
+          number="09"
           title={t("conclusion.title")}
           subtitle={t("conclusion.text")}
         />
@@ -75,7 +75,7 @@ function ConclusionDiagram() {
     {
       num: "04",
       label: locale === "zh" ? "高阶执行" : "Advanced Execution",
-      detail: "fork / merge",
+      detail: "fork / merge / teams",
     },
   ]
 

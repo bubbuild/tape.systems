@@ -52,6 +52,18 @@ export function SessionModel() {
               <IsolatedSessionDiagram />
             </div>
           </div>
+
+          {/* Topic Threading */}
+          <div className="rounded-xl border border-border bg-card overflow-hidden">
+            <div className="px-5 pt-5 pb-2 flex items-baseline gap-3">
+              <span className="text-xs font-mono text-muted-foreground/50">D</span>
+              <h3 className="text-sm font-mono font-semibold text-foreground">{t("session.thread.title")}</h3>
+              <p className="text-xs text-muted-foreground">{t("session.thread.desc")}</p>
+            </div>
+            <div className="p-4 md:px-8 md:pb-6">
+              <TopicThreadDiagram />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -197,6 +209,71 @@ function IsolatedSessionDiagram() {
       </text>
       <text x="610" y="92" textAnchor="middle" className="fill-accent/50 text-[8px] font-mono">
         {locale === "zh" ? "（主动选择）" : "(actively chosen)"}
+      </text>
+    </svg>
+  )
+}
+
+function TopicThreadDiagram() {
+  const { locale } = useI18n()
+
+  return (
+    <svg viewBox="0 0 700 170" className="w-full" fill="none">
+      {/* Timeline */}
+      <line x1="60" y1="50" x2="640" y2="50" className="stroke-border" strokeWidth="2" />
+
+      {/* Topic anchors on timeline */}
+      {[
+        { label: "T1", x: 140, topic: "T1" },
+        { label: "T2", x: 300, topic: "T2" },
+        { label: "T3", x: 420, topic: "T3" },
+        { label: "T1*", x: 560, topic: "T1", active: true },
+      ].map((anchor) => (
+        <g key={anchor.label}>
+          <circle
+            cx={anchor.x}
+            cy={50}
+            r={18}
+            className={anchor.active ? "fill-accent/15 stroke-accent" : "fill-secondary stroke-border"}
+            strokeWidth={anchor.active ? 2 : 1}
+          />
+          <text
+            x={anchor.x}
+            y={55}
+            textAnchor="middle"
+            className={`text-[11px] font-mono font-medium ${
+              anchor.active ? "fill-accent" : "fill-muted-foreground/60"
+            }`}
+          >
+            {anchor.label}
+          </text>
+        </g>
+      ))}
+
+      {/* Recall link to previous topic anchor */}
+      <path d="M 560 68 C 560 98 140 98 140 68" className="stroke-accent/60" strokeWidth="1.2" fill="none" />
+      <text x="350" y="106" textAnchor="middle" className="fill-accent/60 text-[8px] font-mono">
+        {locale === "zh" ? "anchor recall" : "anchor recall"}
+      </text>
+
+      {/* Topic views */}
+      <rect x="120" y="115" width="220" height="36" rx="8" className="fill-accent/10 stroke-accent" strokeWidth="1" />
+      <text x="230" y="138" textAnchor="middle" className="fill-accent text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "Topic View (T1)" : "Topic View (T1)"}
+      </text>
+
+      <rect x="360" y="115" width="220" height="36" rx="8" className="fill-secondary/40 stroke-border" strokeWidth="1" />
+      <text x="470" y="138" textAnchor="middle" className="fill-muted-foreground text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "Topic View (T2)" : "Topic View (T2)"}
+      </text>
+
+      {/* Connectors from topic anchors */}
+      <line x1="140" y1="68" x2="180" y2="115" className="stroke-accent/60" strokeWidth="1" strokeDasharray="4 3" />
+      <line x1="560" y1="68" x2="280" y2="115" className="stroke-accent/60" strokeWidth="1" strokeDasharray="4 3" />
+      <line x1="300" y1="68" x2="470" y2="115" className="stroke-muted-foreground/50" strokeWidth="1" strokeDasharray="4 3" />
+
+      <text x="350" y="162" textAnchor="middle" className="fill-muted-foreground/50 text-[8px] font-mono">
+        {locale === "zh" ? "重复 topic 追加新 anchor，不重写旧 anchor" : "repeated topics append new anchors, not rewrites"}
       </text>
     </svg>
   )

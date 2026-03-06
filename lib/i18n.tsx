@@ -149,6 +149,11 @@ const translations: Translations = {
     zh: "独立时间线，跨会话需选择",
     en: "Independent timelines; cross-session is opt-in",
   },
+  "session.thread.title": { zh: "主题编织", en: "Topic Threading" },
+  "session.thread.desc": {
+    zh: "每个 topic 绑定一个 anchor，重复 topic 触发 recall",
+    en: "Each topic binds an anchor; repeats trigger recall",
+  },
 
   // Strategies
   "strategy.title": { zh: "上下文策略", en: "Context Strategies" },

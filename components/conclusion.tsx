@@ -70,7 +70,7 @@ function ConclusionDiagram() {
     {
       num: "03",
       label: locale === "zh" ? "装配策略" : "Assembly Strategy",
-      detail: "compact / summary / memory",
+      detail: "compact / summary / fork-merge",
     },
     {
       num: "04",
@@ -81,61 +81,46 @@ function ConclusionDiagram() {
 
   return (
     <svg viewBox="0 0 700 220" className="w-full" fill="none">
-      <defs>
-        <marker id="con-arrow" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 5 10 L 10 0" className="fill-accent" />
-        </marker>
-      </defs>
+      <line x1="60" y1="30" x2="60" y2="190" className="stroke-border" strokeWidth="1.5" />
 
       {steps.map((step, i) => {
-        const x = 30 + i * 170
+        const y = 45 + i * 40
         const isLast = i === steps.length - 1
         return (
           <g key={step.num}>
-            {/* Card */}
-            <rect
-              x={x}
-              y={40}
-              width={145}
-              height={100}
-              rx={10}
-              className={isLast ? "fill-accent/10 stroke-accent" : "fill-secondary stroke-border"}
+            <circle
+              cx={60}
+              cy={y}
+              r={8}
+              className={isLast ? "fill-accent/20 stroke-accent" : "fill-secondary stroke-border"}
               strokeWidth={isLast ? 1.5 : 1}
             />
+            <text x={60} y={y + 3} textAnchor="middle" className={`text-[8px] font-mono ${isLast ? "fill-accent" : "fill-muted-foreground/70"}`}>
+              {step.num}
+            </text>
 
-            {/* Number */}
-            <text x={x + 20} y={72} className="fill-muted-foreground/30 text-[22px] font-mono font-bold">{step.num}</text>
+            <line x1={70} y1={y} x2={120} y2={y} className="stroke-border" strokeWidth="1" />
 
-            {/* Label */}
-            <text
-              x={x + 72.5}
-              y={105}
-              textAnchor="middle"
-              className={`text-[12px] font-mono font-semibold ${isLast ? "fill-accent" : "fill-foreground"}`}
-            >
+            <rect
+              x={120}
+              y={y - 16}
+              width={500}
+              height={32}
+              rx={8}
+              className={isLast ? "fill-accent/10 stroke-accent" : "fill-card stroke-border"}
+              strokeWidth={isLast ? 1.2 : 1}
+            />
+            <text x={140} y={y + 5} className={`text-[11px] font-mono font-semibold ${isLast ? "fill-accent" : "fill-foreground"}`}>
               {step.label}
             </text>
-
-            {/* Detail */}
-            <text
-              x={x + 72.5}
-              y={125}
-              textAnchor="middle"
-              className={`text-[9px] font-mono ${isLast ? "fill-accent/60" : "fill-muted-foreground/60"}`}
-            >
+            <text x={600} y={y + 5} textAnchor="end" className={`text-[9px] font-mono ${isLast ? "fill-accent/60" : "fill-muted-foreground/60"}`}>
               {step.detail}
             </text>
-
-            {/* Arrow */}
-            {i < steps.length - 1 && (
-              <line x1={x + 148} y1={90} x2={x + 167} y2={90} className="stroke-accent/50" strokeWidth="1.5" markerEnd="url(#con-arrow)" />
-            )}
           </g>
         )
       })}
 
-      {/* Bottom label */}
-      <text x={350} y={190} textAnchor="middle" className="fill-muted-foreground/40 text-[10px] font-mono">
+      <text x={350} y={205} textAnchor="middle" className="fill-muted-foreground/40 text-[9px] font-mono">
         {locale === "zh" ? "稳定的研究框架" : "a stable research framework"}
       </text>
     </svg>

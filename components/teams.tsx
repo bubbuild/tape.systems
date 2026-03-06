@@ -65,9 +65,9 @@ function SharedTapeDiagram() {
       <line x1="485" y1="46" x2="485" y2="200" className="stroke-border" strokeWidth="1.5" strokeDasharray="5 4" />
 
       {[
-        { name: "Team A", y: 45 },
-        { name: "Team B", y: 105 },
-        { name: "Team C", y: 165 },
+        { name: "Agent A", y: 45 },
+        { name: "Agent B", y: 105 },
+        { name: "Agent C", y: 165 },
       ].map((agent) => (
         <g key={agent.name}>
           <rect x="40" y={agent.y} width="110" height="30" rx="6" className="fill-foreground" />

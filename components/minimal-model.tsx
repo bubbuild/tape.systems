@@ -7,7 +7,7 @@ export function MinimalModel() {
   const { t } = useI18n()
 
   return (
-    <section className="py-24 md:py-32 px-6 border-t border-border">
+    <section id="model" className="py-24 md:py-32 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
           number="01"

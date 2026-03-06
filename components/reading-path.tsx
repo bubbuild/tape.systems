@@ -43,60 +43,81 @@ export function ReadingPath() {
           title={t("path.title")}
         />
         <div className="mt-2">
-          <ReadingFlowDiagram />
+          <ReadingDirectory />
         </div>
       </div>
     </section>
   )
 }
 
-function ReadingFlowDiagram() {
+function ReadingDirectory() {
   const { locale } = useI18n()
 
-  const layers = [
-    { num: "01", en: "Fact", zh: "事实", detail: "Append", fill: "fill-foreground" },
-    { num: "02", en: "Phase", zh: "阶段", detail: "Anchor + Handoff", fill: "fill-foreground/80" },
-    { num: "03", en: "Session", zh: "会话", detail: "Single / Multi / Isolation / Thread", fill: "fill-foreground/60" },
-    { num: "04", en: "Strategy", zh: "策略", detail: "Compact / Summary / Fork-Merge", fill: "fill-foreground/45" },
-    { num: "05", en: "Advanced", zh: "进阶", detail: "Memory / Teams", fill: "fill-accent" },
+  const items = [
+    {
+      num: "01",
+      href: "#model",
+      title: locale === "zh" ? "最小模型" : "Minimal Model",
+      detail: "tape / entry / anchor / view",
+      group: locale === "zh" ? "基础" : "Core",
+    },
+    {
+      num: "02",
+      href: "#mechanisms",
+      title: locale === "zh" ? "核心机制" : "Mechanisms",
+      detail: "append / anchor / handoff",
+      group: locale === "zh" ? "基础" : "Core",
+    },
+    {
+      num: "03",
+      href: "#sessions",
+      title: locale === "zh" ? "会话模型" : "Sessions",
+      detail: "single / multi / thread",
+      group: locale === "zh" ? "会话" : "Session",
+    },
+    {
+      num: "04",
+      href: "#strategies",
+      title: locale === "zh" ? "上下文策略" : "Strategies",
+      detail: "compact / summary / fork-merge",
+      group: locale === "zh" ? "策略" : "Strategy",
+    },
+    {
+      num: "05",
+      href: "#advanced",
+      title: locale === "zh" ? "Memory" : "Memory",
+      detail: "anchor graph",
+      group: locale === "zh" ? "进阶" : "Advanced",
+    },
+    {
+      num: "06",
+      href: "#teams",
+      title: "Teams",
+      detail: "shared / cross",
+      group: locale === "zh" ? "进阶" : "Advanced",
+    },
   ]
 
   return (
-    <svg viewBox="0 0 640 300" className="w-full" fill="none">
-      {layers.map((layer, i) => {
-        const y = 8 + i * 58
-        const barW = 420
-        const barX = 120
-        return (
-          <g key={layer.num}>
-            {/* Number */}
-            <text x={60} y={y + 27} textAnchor="middle" className="fill-muted-foreground/25 text-[24px] font-mono font-bold">
-              {layer.num}
-            </text>
-
-            {/* Bar */}
-            <rect x={barX} y={y} width={barW} height={42} rx={6} className={layer.fill} />
-
-            {/* Label */}
-            <text x={barX + 20} y={y + 26} className="fill-primary-foreground text-[13px] font-semibold">
-              {locale === "zh" ? layer.zh : layer.en}
-            </text>
-
-            {/* Detail */}
-            <text x={barX + barW - 16} y={y + 26} textAnchor="end" className="fill-primary-foreground/60 text-[10px] font-mono">
-              {layer.detail}
-            </text>
-
-            {/* Connector */}
-            {i < layers.length - 1 && (
-              <g>
-                <line x1={barX + barW / 2} y1={y + 44} x2={barX + barW / 2} y2={y + 56} className="stroke-border" strokeWidth="1.5" />
-                <circle cx={barX + barW / 2} cy={y + 56} r={1.5} className="fill-border" />
-              </g>
-            )}
-          </g>
-        )
-      })}
-    </svg>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {items.map((item) => (
+        <a
+          key={item.num}
+          href={item.href}
+          className="group rounded-xl border border-border bg-card px-4 py-3 hover:border-foreground/40 transition-colors"
+        >
+          <div className="flex items-baseline justify-between">
+            <div className="flex items-baseline gap-3">
+              <span className="text-[10px] font-mono text-muted-foreground/60">{item.num}</span>
+              <span className="text-sm font-mono font-semibold text-foreground group-hover:text-foreground">
+                {item.title}
+              </span>
+            </div>
+            <span className="text-[10px] font-mono text-muted-foreground/50">{item.group}</span>
+          </div>
+          <div className="mt-1 text-[11px] font-mono text-muted-foreground/70">{item.detail}</div>
+        </a>
+      ))}
+    </div>
   )
 }

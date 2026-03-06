@@ -79,7 +79,7 @@ const translations: Translations = {
   "append.title": { zh: "Append", en: "Append" },
   "append.subtitle": {
     zh: "唯一改变事实面的操作 — 把新事实写入 tape 尾部",
-    en: "The sole operation that mutates facts \u2014 writing to the tape\u2019s tail",
+    en: "The sole operation that mutates facts — writing to the tape’s tail",
   },
   "append.sem1": {
     zh: "顺序可追踪（单调递增 ID）",
@@ -175,8 +175,8 @@ const translations: Translations = {
     en: "handoff + anchor + selective view",
   },
   "compact.key": {
-    zh: "compact \u2260 删除历史；缩小默认读取集",
-    en: "compact \u2260 delete history; shrink default read set",
+    zh: "compact ≠ 删除历史；缩小默认读取集",
+    en: "compact ≠ delete history; shrink default read set",
   },
   "summary.title": { zh: "Summary", en: "Summary" },
   "summary.problem": {
@@ -218,7 +218,7 @@ const translations: Translations = {
   "fork.why.title": { zh: "复杂性", en: "Why Complex" },
   "fork.why.1": {
     zh: "merge 只追加 delta，不可重写主线",
-    en: "Merge appends deltas only \u2014 no mainline rewrites",
+    en: "Merge appends deltas only — no mainline rewrites",
   },
   "fork.why.2": {
     zh: "并发 fork 的合并顺序影响 entry 排列",
@@ -232,45 +232,45 @@ const translations: Translations = {
   // Advanced Memory
   "advanced.memory.title": { zh: "Memory", en: "Memory" },
   "advanced.memory.subtitle": {
-    zh: "\u8fdb\u9636\u90e8\u5206\uff1a\u5229\u7528 anchor \u5f62\u6210\u56fe\u7ed3\u6784\u7684\u590d\u6742 memory",
-    en: "Advanced: complex memory assembled from anchor graphs",
+    zh: "利用 anchor 形成图结构的复杂 memory",
+    en: "Complex memory assembled from anchor graphs",
   },
-  "advanced.memory.why.title": { zh: "\u590d\u6742\u6027", en: "Why Complex" },
+  "advanced.memory.why.title": { zh: "复杂性", en: "Why Complex" },
   "advanced.memory.why.1": {
-    zh: "anchor \u53ef\u5f62\u6210\u975e\u7ebf\u6027\u56fe\uff0c\u4e0d\u518d\u662f\u5355\u7ebf\u65f6\u95f4\u8f74",
+    zh: "anchor 可形成非线性图，不再是单线时间轴",
     en: "Anchors can form non-linear graphs, not a single timeline",
   },
   "advanced.memory.why.2": {
-    zh: "memory view \u9700\u4ece\u591a\u4e2a\u8282\u70b9\u88c5\u914d\uff0c\u4f9d\u8d56\u7b56\u7565",
+    zh: "memory view 需从多个节点装配，依赖策略",
     en: "Memory views assemble from multiple nodes, guided by policy",
   },
   "advanced.memory.why.3": {
-    zh: "\u56fe\u7ed3\u6784\u5f15\u5165\u7236\u5b50\u5173\u7cfb\u4e0e provenance \u8981\u6c42",
+    zh: "图结构引入父子关系与 provenance 要求",
     en: "Graph structure requires explicit lineage and provenance",
   },
 
   // Teams
-  "teams.title": { zh: "\u56e2\u961f", en: "Teams" },
+  "teams.title": { zh: "团队", en: "Teams" },
   "teams.subtitle": {
-    zh: "\u591a\u56e2\u961f\u5171\u4eab\u4e00\u6761 tape\uff0c\u5e76\u901a\u8fc7 view \u4e92\u76f8\u901a\u4fe1",
-    en: "Multiple teams share one tape and communicate through views",
+    zh: "团队既可共享 tape，也可通过跨 tape view 协作。",
+    en: "Teams coordinate via shared tapes and cross-tape views.",
   },
-  "teams.shared.title": { zh: "\u5171\u4eab Tape", en: "Shared Tape" },
+  "teams.shared.title": { zh: "共享 Tape", en: "Shared Tape" },
   "teams.shared.desc": {
-    zh: "\u591a\u4e2a\u56e2\u961f append \u540c\u4e00\u6761 tape\uff0centry \u4fdd\u7559\u6765\u6e90\u8eab\u4efd",
-    en: "Multiple teams append the same tape; entries keep their origin",
+    zh: "多个 agent append 同一条 tape，entry 保留来源身份",
+    en: "Multiple agents append the same tape; entries keep their origin",
   },
   "teams.shared.note": {
-    zh: "\u53ea\u8ffd\u52a0\uff0c\u4e0d\u91cd\u5199\uff1b\u6765\u6e90\u53ef\u8ffd\u8e2a",
+    zh: "只追加，不重写；来源可追踪",
     en: "Append-only; ownership remains traceable",
   },
-  "teams.cross.title": { zh: "\u8de8 Tape View", en: "Cross-Tape View" },
+  "teams.cross.title": { zh: "跨 Tape View", en: "Cross-Tape View" },
   "teams.cross.desc": {
-    zh: "\u56e2\u961f\u901a\u8fc7 view \u8bfb\u53d6\u5bf9\u65b9 tape\uff0c\u5f62\u6210\u534f\u4f5c\u4e0a\u4e0b\u6587",
+    zh: "团队通过 view 读取对方 tape，形成协作上下文",
     en: "Teams read each other's tapes via views to coordinate",
   },
   "teams.cross.note": {
-    zh: "view \u7531\u88c5\u914d\u4ea7\u751f\uff1btape \u4ecd\u7136\u9694\u79bb",
+    zh: "view 由装配产生；tape 仍然隔离",
     en: "Views are assembled; tapes remain isolated",
   },
 

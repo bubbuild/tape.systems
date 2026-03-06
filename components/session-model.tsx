@@ -252,7 +252,7 @@ function TopicThreadDiagram() {
 
       {/* Recall link to previous topic anchor */}
       <path d="M 560 68 C 560 98 140 98 140 68" className="stroke-accent/60" strokeWidth="1.2" fill="none" />
-      <text x="350" y="106" textAnchor="middle" className="fill-accent/60 text-[8px] font-mono">
+      <text x="350" y="104" textAnchor="middle" className="fill-accent/60 text-[8px] font-mono">
         {locale === "zh" ? "anchor recall" : "anchor recall"}
       </text>
 
@@ -273,7 +273,7 @@ function TopicThreadDiagram() {
       <line x1="300" y1="68" x2="470" y2="115" className="stroke-muted-foreground/50" strokeWidth="1" strokeDasharray="4 3" />
 
       <text x="350" y="162" textAnchor="middle" className="fill-muted-foreground/50 text-[8px] font-mono">
-        {locale === "zh" ? "重复 topic 追加新 anchor，不重写旧 anchor" : "repeated topics append new anchors, not rewrites"}
+        {locale === "zh" ? "human 与 agent 通过组织 anchor 协作" : "human and agent collaborate via organized anchors"}
       </text>
     </svg>
   )

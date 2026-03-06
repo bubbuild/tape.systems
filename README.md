@@ -9,8 +9,9 @@ A minimal site describing a tape-based context model, practiced in [bub.build](h
 - Mechanisms: Append, Anchor, Handoff
 - Session Modeling: Single, Multi-turn, Isolation, Topic Threading
 - Context Strategies: Compact, Summary, Fork-Merge
-- Advanced: Memory assembly from anchor graphs
-- Teams: shared tape + cross-tape views
+- Advanced: 
+    - Memory: assembly from anchor graphs
+    - Teams: shared tape + cross-tape views
 
 ## Tech Stack
 

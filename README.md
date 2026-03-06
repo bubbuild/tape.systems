@@ -2,7 +2,15 @@
 
 Live: [https://tape.systems](https://tape.systems)
 
-A minimal site describing the tape-based context model behind [bub.build](https://bub.build). Source: [bubbuild/bub](https://github.com/bubbuild/bub).
+A minimal site describing a tape-based context model, practiced in [bub.build](https://bub.build). Source: [bubbuild/bub](https://github.com/bubbuild/bub).
+
+## What’s Inside
+
+- Mechanisms: Append, Anchor, Handoff
+- Session Modeling: Single, Multi-turn, Isolation, Topic Threading
+- Context Strategies: Compact, Summary, Fork-Merge
+- Advanced: Memory assembly from anchor graphs
+- Teams: shared tape + cross-tape views
 
 ## Tech Stack
 

@@ -36,6 +36,8 @@ export function Hero() {
 
         {/* Subtitle */}
         <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed text-center text-pretty max-w-md">
+          <span>{t("hero.subtitle.line2")}</span>
+          <br />
           <span>{t("hero.subtitle.line1")}</span>
           <br />
           <span>

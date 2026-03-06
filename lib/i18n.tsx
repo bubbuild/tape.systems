@@ -21,19 +21,23 @@ const translations: Translations = {
     en: "Tape as Context",
   },
   "hero.subtitle.line1": {
-    zh: "Append, Anchor, Handoff, Fork/Merge",
-    en: "Append, Anchor, Handoff, Fork/Merge",
+    zh: "Handoff, Fork/Merge, Memory, Teams, Topic Threading",
+    en: "Handoff, Fork/Merge, Memory, Teams, Topic Threading",
+  },
+  "hero.subtitle.line2": {
+    zh: "一个面向长周期、多团队协作的统一上下文模型。",
+    en: "A unified context model for long-running, multi-team work.",
   },
   "hero.subtitle.line2Prefix": {
-    zh: "",
-    en: "A unified context model behind ",
+    zh: "在 ",
+    en: "Practiced in ",
   },
   "hero.subtitle.line2Between": {
-    zh: " 背后的统一上下文模型，",
+    zh: " 践行，源码在",
     en: ", ",
   },
   "hero.subtitle.source": {
-    zh: "查看源码",
+    zh: "这里",
     en: "view source",
   },
   "hero.cta": { zh: "开始探索", en: "Explore" },

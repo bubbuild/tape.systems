@@ -9,6 +9,7 @@ import { CoreMechanisms } from "@/components/core-mechanisms"
 import { SessionModel } from "@/components/session-model"
 import { ContextStrategies } from "@/components/context-strategies"
 import { ForkMerge } from "@/components/fork-merge"
+import { Teams } from "@/components/teams"
 import { Conclusion } from "@/components/conclusion"
 import { Footer } from "@/components/footer"
 
@@ -24,6 +25,7 @@ export default function Page() {
         <SessionModel />
         <ContextStrategies />
         <ForkMerge />
+        <Teams />
         <Conclusion />
       </main>
       <Footer />

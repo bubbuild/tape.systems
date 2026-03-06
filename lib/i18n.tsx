@@ -216,6 +216,31 @@ const translations: Translations = {
     en: "Explicit conflict & dedup strategies required",
   },
 
+  // Teams
+  "multi.title": { zh: "\u56e2\u961f", en: "Teams" },
+  "multi.subtitle": {
+    zh: "\u591a\u56e2\u961f\u5171\u4eab\u4e00\u6761 tape\uff0c\u5e76\u901a\u8fc7 view \u4e92\u76f8\u901a\u4fe1",
+    en: "Multiple teams share one tape and communicate through views",
+  },
+  "multi.shared.title": { zh: "\u5171\u4eab Tape", en: "Shared Tape" },
+  "multi.shared.desc": {
+    zh: "\u591a\u4e2a\u56e2\u961f append \u540c\u4e00\u6761 tape\uff0centry \u4fdd\u7559\u6765\u6e90\u8eab\u4efd",
+    en: "Multiple teams append the same tape; entries keep their origin",
+  },
+  "multi.shared.note": {
+    zh: "\u53ea\u8ffd\u52a0\uff0c\u4e0d\u91cd\u5199\uff1b\u6765\u6e90\u53ef\u8ffd\u8e2a",
+    en: "Append-only; ownership remains traceable",
+  },
+  "multi.cross.title": { zh: "\u8de8 Tape View", en: "Cross-Tape View" },
+  "multi.cross.desc": {
+    zh: "\u56e2\u961f\u901a\u8fc7 view \u8bfb\u53d6\u5bf9\u65b9 tape\uff0c\u5f62\u6210\u534f\u4f5c\u4e0a\u4e0b\u6587",
+    en: "Teams read each other's tapes via views to coordinate",
+  },
+  "multi.cross.note": {
+    zh: "view \u7531\u88c5\u914d\u4ea7\u751f\uff1btape \u4ecd\u7136\u9694\u79bb",
+    en: "Views are assembled; tapes remain isolated",
+  },
+
   // Conclusion
   "conclusion.title": { zh: "结论", en: "Conclusion" },
   "conclusion.text": {

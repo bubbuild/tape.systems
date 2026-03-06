@@ -58,7 +58,7 @@ function ReadingFlowDiagram() {
     { num: "02", en: "Phase", zh: "阶段", detail: "Anchor + Handoff", fill: "fill-foreground/80" },
     { num: "03", en: "Session", zh: "会话", detail: "Single / Multi / Isolation", fill: "fill-foreground/60" },
     { num: "04", en: "Strategy", zh: "策略", detail: "Compact / Summary / Memory", fill: "fill-foreground/45" },
-    { num: "05", en: "Advanced", zh: "高级", detail: "Fork / Merge", fill: "fill-accent" },
+    { num: "05", en: "Advanced", zh: "高级", detail: "Fork / Merge / Teams", fill: "fill-accent" },
   ]
 
   return (

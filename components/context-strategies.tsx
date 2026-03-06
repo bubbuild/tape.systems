@@ -4,7 +4,7 @@ import { useI18n } from "@/lib/i18n"
 import { SectionHeader } from "./reading-path"
 
 export function ContextStrategies() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
 
   return (
     <section id="strategies" className="py-20 md:py-28 px-6 border-t border-border">
@@ -32,12 +32,12 @@ export function ContextStrategies() {
             diagram={<SummaryDiagram />}
           />
 
-          {/* ── Memory ── */}
+          {/* ── Fork / Merge ── */}
           <StrategyCard
-            title={t("memory.title")}
-            problem={t("memory.problem")}
-            keyInsight={t("memory.key")}
-            diagram={<MemoryDiagram />}
+            title={t("fork.title")}
+            problem={t("fork.problem")}
+            keyInsight={t("fork.key")}
+            diagram={<ForkMergeStrategyDiagram />}
           />
         </div>
       </div>
@@ -203,58 +203,61 @@ function SummaryDiagram() {
 }
 
 /* ═══════════════════════════════════════════
-   MEMORY DIAGRAM
+   FORK / MERGE STRATEGY DIAGRAM
    ═══════════════════════════════════════════ */
-function MemoryDiagram() {
+function ForkMergeStrategyDiagram() {
   const { locale } = useI18n()
 
   return (
-    <svg viewBox="0 0 700 160" className="w-full" fill="none">
+    <svg viewBox="0 0 700 260" className="w-full" fill="none">
       <defs>
-        <marker id="mem-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <marker id="fm-s-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M 0 0 L 10 5 L 0 10 z" className="fill-foreground" />
         </marker>
-        <marker id="mem-arrow-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <marker id="fm-s-arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
           <path d="M 0 0 L 10 5 L 0 10 z" className="fill-accent" />
         </marker>
       </defs>
 
-      {/* Tape */}
-      <rect x="20" y="20" width="200" height="45" rx="8" className="fill-foreground" />
-      <text x="120" y="48" textAnchor="middle" className="fill-primary-foreground text-[13px] font-mono font-semibold">Tape</text>
+      <rect x="80" y="12" width="130" height="32" rx="6" className="fill-foreground" />
+      <text x="145" y="33" textAnchor="middle" className="fill-primary-foreground text-[12px] font-mono font-semibold">Main Tape</text>
+      <line x1="145" y1="45" x2="145" y2="238" className="stroke-border" strokeWidth="1.5" strokeDasharray="5 4" />
 
-      {/* BuildIndex arrow */}
-      <line x1="120" y1="70" x2="120" y2="95" className="stroke-muted-foreground" strokeWidth="1.5" markerEnd="url(#mem-arrow)" />
-      <text x="155" y="87" className="fill-muted-foreground text-[9px] font-mono">BuildIndex()</text>
+      <rect x="430" y="12" width="130" height="32" rx="6" className="fill-accent" />
+      <text x="495" y="33" textAnchor="middle" className="fill-accent-foreground text-[12px] font-mono font-semibold">Fork Tape</text>
+      <line x1="495" y1="45" x2="495" y2="238" className="stroke-accent/30" strokeWidth="1.5" strokeDasharray="5 4" />
 
-      {/* Memory Index */}
-      <rect x="30" y="100" width="180" height="45" rx="8" className="fill-secondary stroke-border" strokeWidth="1" />
-      <text x="120" y="127" textAnchor="middle" className="fill-foreground text-[12px] font-mono">Memory Index</text>
-      <text x="120" y="140" textAnchor="middle" className="fill-muted-foreground/50 text-[8px] font-mono">
-        {locale === "zh" ? "（派生索引，非事实副本）" : "(derived index, not a copy)"}
+      <line x1="150" y1="80" x2="485" y2="80" className="stroke-foreground" strokeWidth="1.3" markerEnd="url(#fm-s-arr)" />
+      <rect x="260" y="66" width="120" height="20" rx="5" className="fill-secondary" />
+      <text x="320" y="80" textAnchor="middle" className="fill-foreground text-[10px] font-mono font-semibold">fork(at id=120)</text>
+
+      <g>
+        <rect x="110" y="68" width="28" height="20" rx="3" className="fill-secondary stroke-border" strokeWidth="0.5" />
+        <text x="124" y="82" textAnchor="middle" className="fill-muted-foreground text-[8px] font-mono">120</text>
+      </g>
+
+      <path d="M 500 120 Q 580 120 580 145 Q 580 170 500 170" className="stroke-accent" strokeWidth="1.4" fill="none" markerEnd="url(#fm-s-arr-a)" />
+      <text x="615" y="138" className="fill-accent text-[10px] font-mono">append</text>
+
+      {[
+        { id: "121", y: 118 },
+        { id: "122", y: 145 },
+        { id: "123", y: 172 },
+      ].map((entry) => (
+        <g key={entry.id}>
+          <rect x="455" y={entry.y} width="35" height="20" rx="3" className="fill-accent/15 stroke-accent" strokeWidth="0.8" />
+          <text x="472.5" y={entry.y + 14} textAnchor="middle" className="fill-accent text-[9px] font-mono">{entry.id}</text>
+        </g>
+      ))}
+
+      <line x1="490" y1="210" x2="155" y2="210" className="stroke-accent" strokeWidth="1.8" markerEnd="url(#fm-s-arr-a)" />
+      <rect x="250" y="196" width="160" height="20" rx="5" className="fill-accent/15" />
+      <text x="330" y="210" textAnchor="middle" className="fill-accent text-[10px] font-mono font-semibold">
+        merge(new entries only)
       </text>
 
-      {/* Query arrow */}
-      <line x1="215" y1="122" x2="310" y2="80" className="stroke-accent" strokeWidth="1.5" markerEnd="url(#mem-arrow-a)" />
-      <text x="280" y="95" className="fill-accent text-[9px] font-mono">Query()</text>
-
-      {/* EntryIDs result */}
-      <rect x="315" y="58" width="120" height="35" rx="6" className="fill-accent/10 stroke-accent" strokeWidth="1" />
-      <text x="375" y="80" textAnchor="middle" className="fill-accent text-[11px] font-mono">EntryIDs</text>
-
-      {/* Load raw entries arrow */}
-      <line x1="440" y1="75" x2="500" y2="45" className="stroke-accent" strokeWidth="1.5" markerEnd="url(#mem-arrow-a)" />
-      <text x="490" y="68" className="fill-accent text-[9px] font-mono">LoadRaw()</text>
-
-      {/* Raw entries result */}
-      <rect x="505" y="20" width="170" height="45" rx="8" className="fill-accent stroke-accent" strokeWidth="1.5" />
-      <text x="590" y="48" textAnchor="middle" className="fill-accent-foreground text-[12px] font-mono font-semibold">
-        Raw Entries
-      </text>
-
-      {/* Annotation */}
-      <text x="590" y="90" textAnchor="middle" className="fill-muted-foreground/40 text-[8px] font-mono">
-        {locale === "zh" ? "命中后回读原始事实" : "reload raw facts after hit"}
+      <text x="495" y="238" textAnchor="middle" className="fill-muted-foreground/40 text-[8px] font-mono">
+        {locale === "zh" ? "只追加 delta，不重写主线" : "append delta only, no rewrite"}
       </text>
     </svg>
   )

@@ -8,7 +8,7 @@ import { MinimalModel } from "@/components/minimal-model"
 import { CoreMechanisms } from "@/components/core-mechanisms"
 import { SessionModel } from "@/components/session-model"
 import { ContextStrategies } from "@/components/context-strategies"
-import { ForkMerge } from "@/components/fork-merge"
+import { AdvancedMemory } from "@/components/advanced-memory"
 import { Teams } from "@/components/teams"
 import { Conclusion } from "@/components/conclusion"
 import { Footer } from "@/components/footer"
@@ -24,7 +24,7 @@ export default function Page() {
         <CoreMechanisms />
         <SessionModel />
         <ContextStrategies />
-        <ForkMerge />
+        <AdvancedMemory />
         <Teams />
         <Conclusion />
       </main>

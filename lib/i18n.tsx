@@ -13,7 +13,7 @@ const translations: Translations = {
   "nav.mechanisms": { zh: "核心机制", en: "Mechanisms" },
   "nav.sessions": { zh: "会话模型", en: "Sessions" },
   "nav.strategies": { zh: "上下文策略", en: "Strategies" },
-  "nav.advanced": { zh: "高级", en: "Advanced" },
+  "nav.advanced": { zh: "进阶", en: "Advanced" },
 
   // Hero
   "hero.tagline": {
@@ -153,8 +153,8 @@ const translations: Translations = {
   // Strategies
   "strategy.title": { zh: "上下文策略", en: "Context Strategies" },
   "strategy.subtitle": {
-    zh: "用三种机制组合表达 compact / summary / memory",
-    en: "Three mechanism combos for compact, summary, and memory",
+    zh: "用三种机制组合表达 compact / summary / fork-merge",
+    en: "Three mechanism combos for compact, summary, and fork-merge",
   },
   "compact.title": { zh: "Compact", en: "Compact" },
   "compact.problem": {
@@ -196,11 +196,15 @@ const translations: Translations = {
     en: "Index failures ok; hits reload raw facts",
   },
 
-  // Fork/Merge
+  // Fork/Merge Strategy
   "fork.title": { zh: "Fork / Merge", en: "Fork / Merge" },
-  "fork.subtitle": {
-    zh: "执行隔离与合流 \u2014 最复杂的部分",
-    en: "Execution isolation & convergence \u2014 the most complex part",
+  "fork.problem": {
+    zh: "需要并行探索，又要可控地合流",
+    en: "Need parallel exploration with controlled convergence",
+  },
+  "fork.key": {
+    zh: "merge 只追加 delta，不可重写主线",
+    en: "Merge appends deltas only; no mainline rewrites",
   },
   "fork.why.title": { zh: "复杂性", en: "Why Complex" },
   "fork.why.1": {
@@ -214,6 +218,26 @@ const translations: Translations = {
   "fork.why.3": {
     zh: "需明确冲突与去重策略",
     en: "Explicit conflict & dedup strategies required",
+  },
+
+  // Advanced Memory
+  "advanced.memory.title": { zh: "Memory", en: "Memory" },
+  "advanced.memory.subtitle": {
+    zh: "\u8fdb\u9636\u90e8\u5206\uff1a\u5229\u7528 anchor \u5f62\u6210\u56fe\u7ed3\u6784\u7684\u590d\u6742 memory",
+    en: "Advanced: complex memory assembled from anchor graphs",
+  },
+  "advanced.memory.why.title": { zh: "\u590d\u6742\u6027", en: "Why Complex" },
+  "advanced.memory.why.1": {
+    zh: "anchor \u53ef\u5f62\u6210\u975e\u7ebf\u6027\u56fe\uff0c\u4e0d\u518d\u662f\u5355\u7ebf\u65f6\u95f4\u8f74",
+    en: "Anchors can form non-linear graphs, not a single timeline",
+  },
+  "advanced.memory.why.2": {
+    zh: "memory view \u9700\u4ece\u591a\u4e2a\u8282\u70b9\u88c5\u914d\uff0c\u4f9d\u8d56\u7b56\u7565",
+    en: "Memory views assemble from multiple nodes, guided by policy",
+  },
+  "advanced.memory.why.3": {
+    zh: "\u56fe\u7ed3\u6784\u5f15\u5165\u7236\u5b50\u5173\u7cfb\u4e0e provenance \u8981\u6c42",
+    en: "Graph structure requires explicit lineage and provenance",
   },
 
   // Teams

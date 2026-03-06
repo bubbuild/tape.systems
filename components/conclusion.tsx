@@ -74,8 +74,8 @@ function ConclusionDiagram() {
     },
     {
       num: "04",
-      label: locale === "zh" ? "高阶执行" : "Advanced Execution",
-      detail: "fork / merge / teams",
+      label: locale === "zh" ? "进阶" : "Advanced",
+      detail: "memory / teams",
     },
   ]
 

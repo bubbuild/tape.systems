@@ -199,8 +199,6 @@ function AnchorDiagram() {
 }
 
 function HandoffDiagram() {
-  const { locale } = useI18n()
-
   return (
     <svg viewBox="0 0 660 190" className="w-full" fill="none">
       <defs>

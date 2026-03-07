@@ -96,6 +96,13 @@ function ReadingDirectory() {
       detail: "shared / cross",
       group: locale === "zh" ? "进阶" : "Advanced",
     },
+    {
+      num: "07",
+      href: "#appendix",
+      title: locale === "zh" ? "附录" : "Appendix",
+      detail: "observability / training",
+      group: locale === "zh" ? "附加" : "Applied",
+    },
   ]
 
   return (

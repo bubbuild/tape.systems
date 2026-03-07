@@ -18,6 +18,7 @@ export function Navigation() {
     { key: "nav.sessions", href: "#sessions" },
     { key: "nav.strategies", href: "#strategies" },
     { key: "nav.advanced", href: "#advanced" },
+    { key: "nav.appendix", href: "#appendix" },
   ]
 
   return (

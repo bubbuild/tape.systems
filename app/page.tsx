@@ -10,6 +10,7 @@ import { SessionModel } from "@/components/session-model"
 import { ContextStrategies } from "@/components/context-strategies"
 import { AdvancedMemory } from "@/components/advanced-memory"
 import { Teams } from "@/components/teams"
+import { Appendix } from "@/components/appendix"
 import { Conclusion } from "@/components/conclusion"
 import { Footer } from "@/components/footer"
 
@@ -26,6 +27,7 @@ export default function Page() {
         <ContextStrategies />
         <AdvancedMemory />
         <Teams />
+        <Appendix />
         <Conclusion />
       </main>
       <Footer />

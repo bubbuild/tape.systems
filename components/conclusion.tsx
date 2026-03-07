@@ -11,7 +11,7 @@ export function Conclusion() {
     <section className="py-20 md:py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="09"
+          number="10"
           title={t("conclusion.title")}
           subtitle={t("conclusion.text")}
         />
@@ -74,14 +74,19 @@ function ConclusionDiagram() {
     },
     {
       num: "04",
-      label: locale === "zh" ? "进阶" : "Advanced",
+      label: locale === "zh" ? "进阶协作" : "Advanced Collaboration",
       detail: "memory / teams",
+    },
+    {
+      num: "05",
+      label: locale === "zh" ? "附录" : "Appendix",
+      detail: "observe / train",
     },
   ]
 
   return (
-    <svg viewBox="0 0 700 220" className="w-full" fill="none">
-      <line x1="60" y1="30" x2="60" y2="190" className="stroke-border" strokeWidth="1.5" />
+    <svg viewBox="0 0 700 260" className="w-full" fill="none">
+      <line x1="60" y1="30" x2="60" y2="230" className="stroke-border" strokeWidth="1.5" />
 
       {steps.map((step, i) => {
         const y = 45 + i * 40
@@ -120,7 +125,7 @@ function ConclusionDiagram() {
         )
       })}
 
-      <text x={350} y={205} textAnchor="middle" className="fill-muted-foreground/40 text-[9px] font-mono">
+      <text x={350} y={245} textAnchor="middle" className="fill-muted-foreground/40 text-[9px] font-mono">
         {locale === "zh" ? "稳定的研究框架" : "a stable research framework"}
       </text>
     </svg>

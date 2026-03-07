@@ -4,7 +4,7 @@ import { useI18n } from "@/lib/i18n"
 import { SectionHeader } from "./reading-path"
 
 export function SessionModel() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
 
   return (
     <section id="sessions" className="py-20 md:py-28 px-6 border-t border-border">

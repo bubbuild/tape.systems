@@ -2,9 +2,9 @@
 
 Live: [https://tape.systems](https://tape.systems)
 
-A minimal site describing a tape-based fact model, practiced in [bub.build](https://bub.build).
+A minimal site about constructing context from tape, practiced in [bub.build](https://bub.build).
 
-The site covers both the core context model and two natural extensions: observability and model training.
+The site covers both the core context model and three natural extensions: observability, evaluation, and model training.
 
 References:
 
@@ -19,6 +19,7 @@ References:
 - Advanced Collaboration: memory, teams
 - Appendix:
     - observability via replayable tape timelines
+    - evaluation via anchor-bounded views, judges, and derived annotations
     - training via anchor-segmented trajectory export
 
 ## Tech Stack

@@ -28,13 +28,14 @@ export function Conclusion() {
           </div>
           <div className="flex flex-col gap-3">
             {[
-              { key: "ref.1", slug: "carpenter-hammer-nail" },
-              { key: "ref.2", slug: "prometheus-bound" },
-              { key: "ref.3", slug: "reinvent-the-punch-tape" },
+              { key: "ref.1", href: `${refBase}/carpenter-hammer-nail/` },
+              { key: "ref.2", href: `${refBase}/prometheus-bound/` },
+              { key: "ref.3", href: `${refBase}/reinvent-the-punch-tape/` },
+              { key: "ref.4", href: `${refBase}/im-and-socialized-evaluation/` },
             ].map((ref, i) => (
               <a
                 key={ref.key}
-                href={`${refBase}/${ref.slug}/`}
+                href={ref.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-sm text-background/60 hover:text-background transition-colors"
@@ -80,7 +81,7 @@ function ConclusionDiagram() {
     {
       num: "05",
       label: locale === "zh" ? "附录" : "Appendix",
-      detail: "observe / train",
+      detail: "observe / eval / train",
     },
   ]
 

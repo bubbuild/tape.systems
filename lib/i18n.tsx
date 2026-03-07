@@ -18,12 +18,12 @@ const translations: Translations = {
 
   // Hero
   "hero.tagline": {
-    zh: "Tape 即上下文",
-    en: "Tape as Context",
+    zh: "从 Tape 构造上下文",
+    en: "Context from Tape",
   },
   "hero.subtitle.line1": {
-    zh: "同一个模型，也可以外延到可观测性与模型训练。",
-    en: "The same structure extends into observability and training.",
+    zh: "同一个结构，也可以外延到可观测性、Eval 与训练。",
+    en: "It also extends to observability, eval, and training.",
   },
   "hero.subtitle.line2": {
     zh: "一个面向长周期、多团队协作的统一事实模型。",
@@ -278,27 +278,37 @@ const translations: Translations = {
   // Appendix
   "appendix.title": { zh: "附录", en: "Appendix" },
   "appendix.subtitle": {
-    zh: "两个外延：把 tape 作为可观测层，以及把 tape 作为训练轨迹底座。",
-    en: "Two extensions: tape as an observability layer and tape as a substrate for training trajectories.",
+    zh: "三个外延：把 tape 作为可观测层、评估层，以及训练轨迹底座。",
+    en: "Three extensions: observability, eval, and training.",
   },
   "appendix.observability.title": { zh: "可观测性", en: "Observability" },
   "appendix.observability.desc": {
     zh: "tape 不只服务上下文装配，也可以保留 session、tool call 和运行事件，再由 web UI 组装成可检索、可回放的时间线。",
-    en: "Tape can serve more than context assembly: it can retain sessions, tool calls, and runtime events, then feed a searchable, replayable web timeline.",
+    en: "Tape can retain sessions, tool calls, and events for a replayable web timeline.",
   },
   "appendix.observability.note": {
     zh: "UI 是派生视图；原始事实仍留在 append-only tape 中。",
     en: "The UI is a derived view; raw facts remain in the append-only tape.",
   },
   "appendix.observability.ref": { zh: "bub", en: "bub" },
+  "appendix.eval.title": { zh: "Eval", en: "Eval" },
+  "appendix.eval.desc": {
+    zh: "按 anchor 取片段，回放历史，检查决策；评分与标签作为派生事实写回。",
+    en: "Slice by anchor, replay history, inspect decisions, then write scores and labels back as derived facts.",
+  },
+  "appendix.eval.note": {
+    zh: "先给人看清路径与决策，再沉淀派生标注。",
+    en: "Show the path and decisions to people first, then append derived annotations.",
+  },
+  "appendix.eval.ref": { zh: "Phoenix", en: "Phoenix" },
   "appendix.training.title": { zh: "训练 / 强化学习", en: "Training / RL" },
   "appendix.training.desc.before": {
     zh: "tape 可以无缝与",
-    en: "Tape can work seamlessly with frameworks such as",
+    en: "Tape works with frameworks such as",
   },
   "appendix.training.desc.after": {
     zh: "这样的框架协作：按 anchor 切段、附 reward、导出 trajectory，再交给异步 trainer 更新模型。",
-    en: ": segment by anchor, attach rewards, export trajectories, and hand them to an async trainer.",
+    en: ": slice by anchor, attach rewards, and export trajectories.",
   },
   "appendix.training.note": {
     zh: "训练层应消费 tape 的导出物，而不是替换 tape 作为原始记录。",
@@ -318,6 +328,7 @@ const translations: Translations = {
   "ref.1": { zh: "木匠，锤子，钉子", en: "Carpenter, Hammer, Nail" },
   "ref.2": { zh: "被缚的普罗米修斯", en: "Prometheus Bound" },
   "ref.3": { zh: "重新发明打孔纸带", en: "Reinventing the Punch Tape" },
+  "ref.4": { zh: "即时通讯与社会化评估", en: "Instant Messaging and Socialized Evaluation" },
 
   // Footer
   "footer.desc": {

@@ -29,6 +29,16 @@ export function Appendix() {
 
           <AppendixCard
             label="B"
+            title={t("appendix.eval.title")}
+            description={t("appendix.eval.desc")}
+            note={t("appendix.eval.note")}
+            referenceLabel={t("appendix.eval.ref")}
+            referenceHref="https://arize.com/docs/phoenix"
+            diagram={<EvaluationDiagram />}
+          />
+
+          <AppendixCard
+            label="C"
             title={t("appendix.training.title")}
             description={
               <>
@@ -196,6 +206,108 @@ function ObservabilityDiagram() {
       <line x1="512" y1="136" x2="556" y2="100" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
       <line x1="512" y1="148" x2="556" y2="140" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
       <line x1="512" y1="160" x2="556" y2="180" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
+    </svg>
+  )
+}
+
+function EvaluationDiagram() {
+  const { locale } = useI18n()
+
+  return (
+    <svg viewBox="0 0 700 220" className="w-full" fill="none">
+      <defs>
+        <marker id="eval-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 1L9 5L0 9" className="fill-none stroke-foreground" strokeWidth="1.5" />
+        </marker>
+        <marker id="eval-arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 1L9 5L0 9" className="fill-none stroke-accent" strokeWidth="1.5" />
+        </marker>
+      </defs>
+
+      <rect x="28" y="18" width="132" height="34" rx="7" className="fill-foreground" />
+      <text x="94" y="40" textAnchor="middle" className="fill-primary-foreground text-[12px] font-mono font-semibold">
+        Tape Slice
+      </text>
+
+      <rect x="246" y="18" width="146" height="34" rx="7" className="fill-secondary" />
+      <text x="319" y="40" textAnchor="middle" className="fill-foreground text-[12px] font-mono font-semibold">
+        {locale === "zh" ? "Human Review" : "Human Review"}
+      </text>
+
+      <rect x="528" y="18" width="144" height="34" rx="7" className="fill-accent" />
+      <text x="600" y="40" textAnchor="middle" className="fill-accent-foreground text-[12px] font-mono font-semibold">
+        {locale === "zh" ? "Derived Facts" : "Derived Facts"}
+      </text>
+
+      <line x1="160" y1="35" x2="236" y2="35" className="stroke-foreground" strokeWidth="1.2" markerEnd="url(#eval-arr)" />
+      <line x1="392" y1="35" x2="518" y2="35" className="stroke-accent" strokeWidth="1.2" markerEnd="url(#eval-arr-a)" />
+
+      <rect x="44" y="82" width="100" height="24" rx="6" className="fill-card stroke-border" strokeWidth="1" />
+      <text x="94" y="98" textAnchor="middle" className="fill-foreground text-[9px] font-mono">
+        anchor A12
+      </text>
+
+      <rect x="44" y="116" width="100" height="22" rx="5" className="fill-card stroke-border" strokeWidth="1" />
+      <text x="94" y="131" textAnchor="middle" className="fill-muted-foreground text-[8px] font-mono">
+        tool / event / msg
+      </text>
+
+      <rect x="44" y="148" width="100" height="24" rx="6" className="fill-accent/12 stroke-accent" strokeWidth="1" />
+      <text x="94" y="164" textAnchor="middle" className="fill-accent text-[9px] font-mono">
+        anchor A13
+      </text>
+
+      <text x="94" y="190" textAnchor="middle" className="fill-muted-foreground/40 text-[8px] font-mono">
+        {locale === "zh" ? "bounded by anchors" : "bounded by anchors"}
+      </text>
+
+      {[
+        { x: 262, y: 84, label: locale === "zh" ? "history replay" : "history replay" },
+        { x: 262, y: 118, label: locale === "zh" ? "decision check" : "decision check" },
+        { x: 262, y: 152, label: locale === "zh" ? "notes" : "notes" },
+      ].map((item) => (
+        <g key={item.label}>
+          <rect x={item.x} y={item.y} width="114" height="22" rx="5" className="fill-card stroke-border" strokeWidth="1" />
+          <text x={item.x + 57} y={item.y + 14} textAnchor="middle" className="fill-foreground text-[8px] font-mono">
+            {item.label}
+          </text>
+        </g>
+      ))}
+
+      <rect x="422" y="90" width="78" height="76" rx="10" className="fill-secondary/35 stroke-border" strokeWidth="1" />
+      <text x="461" y="111" textAnchor="middle" className="fill-muted-foreground text-[9px] font-mono font-semibold">
+        {locale === "zh" ? "append" : "append"}
+      </text>
+      <text x="461" y="128" textAnchor="middle" className="fill-muted-foreground/70 text-[7px] font-mono">
+        score
+      </text>
+      <text x="461" y="141" textAnchor="middle" className="fill-muted-foreground/70 text-[7px] font-mono">
+        label
+      </text>
+      <text x="461" y="154" textAnchor="middle" className="fill-muted-foreground/70 text-[7px] font-mono">
+        rationale
+      </text>
+
+      <line x1="144" y1="160" x2="262" y2="160" className="stroke-muted-foreground/35" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#eval-arr)" />
+      <line x1="376" y1="95" x2="422" y2="114" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#eval-arr-a)" />
+      <line x1="376" y1="129" x2="422" y2="129" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#eval-arr-a)" />
+      <line x1="376" y1="163" x2="422" y2="144" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#eval-arr-a)" />
+
+      {[
+        { y: 84, title: locale === "zh" ? "Replay" : "Replay", detail: locale === "zh" ? "history stays visible" : "history stays visible" },
+        { y: 122, title: locale === "zh" ? "Check" : "Check", detail: locale === "zh" ? "decisions stay inspectable" : "decisions stay inspectable" },
+        { y: 160, title: locale === "zh" ? "Recall" : "Recall", detail: locale === "zh" ? "labels stay linked" : "labels stay linked" },
+      ].map((block) => (
+        <g key={block.title}>
+          <rect x="536" y={block.y} width="128" height="28" rx="6" className="fill-accent/10 stroke-accent" strokeWidth="1" />
+          <text x="548" y={block.y + 12} className="fill-accent text-[9px] font-mono font-semibold">
+            {block.title}
+          </text>
+          <text x="548" y={block.y + 21} className="fill-accent/60 text-[7px] font-mono">
+            {block.detail}
+          </text>
+        </g>
+      ))}
     </svg>
   )
 }

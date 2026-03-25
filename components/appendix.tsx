@@ -19,16 +19,24 @@ export function Appendix() {
         <div className="flex flex-col gap-8">
           <AppendixCard
             label="A"
-            title={t("appendix.observability.title")}
-            description={t("appendix.observability.desc")}
-            note={t("appendix.observability.note")}
-            referenceLabel={t("appendix.observability.ref")}
-            referenceHref="https://github.com/bubbuild/bub"
-            diagram={<ObservabilityDiagram />}
+            title={t("appendix.access.title")}
+            description={t("appendix.access.desc")}
+            note={t("appendix.access.note")}
+            diagram={<AccessControlDiagram />}
           />
 
           <AppendixCard
             label="B"
+            title={t("appendix.observability.title")}
+            description={t("appendix.observability.desc")}
+            note={t("appendix.observability.note")}
+            referenceLabel={t("appendix.observability.ref")}
+            referenceHref="https://bub.build/architecture/"
+            diagram={<ObservabilityDiagram />}
+          />
+
+          <AppendixCard
+            label="C"
             title={t("appendix.eval.title")}
             description={t("appendix.eval.desc")}
             note={t("appendix.eval.note")}
@@ -38,7 +46,7 @@ export function Appendix() {
           />
 
           <AppendixCard
-            label="C"
+            label="D"
             title={t("appendix.training.title")}
             description={
               <>
@@ -79,8 +87,8 @@ function AppendixCard({
   title: string
   description: ReactNode
   note: string
-  referenceLabel: string
-  referenceHref: string
+  referenceLabel?: string
+  referenceHref?: string
   diagram: ReactNode
 }) {
   const { locale } = useI18n()
@@ -99,27 +107,126 @@ function AppendixCard({
 
       <div className="bg-foreground px-5 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <p className="text-xs font-mono text-background/70 leading-relaxed">{note}</p>
-        <a
-          href={referenceHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[11px] font-mono text-background/50 hover:text-background/75 transition-colors"
-        >
-          <span>{locale === "zh" ? "参考" : "ref"}</span>
-          <span>{referenceLabel}</span>
-          <svg width="10" height="10" viewBox="0 0 10 10" className="text-current">
-            <path
-              d="M 2 8 L 8 2 M 4 2 L 8 2 L 8 6"
-              stroke="currentColor"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+        {referenceLabel && referenceHref ? (
+          <a
+            href={referenceHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[11px] font-mono text-background/50 hover:text-background/75 transition-colors"
+          >
+            <span>{locale === "zh" ? "参考" : "ref"}</span>
+            <span>{referenceLabel}</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" className="text-current">
+              <path
+                d="M 2 8 L 8 2 M 4 2 L 8 2 L 8 6"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+        ) : null}
       </div>
     </div>
+  )
+}
+
+function AccessControlDiagram() {
+  const { locale, t } = useI18n()
+
+  return (
+    <svg viewBox="0 0 700 240" className="w-full" fill="none">
+      <defs>
+        <marker id="acl-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 1L9 5L0 9" className="fill-none stroke-foreground" strokeWidth="1.5" />
+        </marker>
+        <marker id="acl-arr-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 1L9 5L0 9" className="fill-none stroke-accent" strokeWidth="1.5" />
+        </marker>
+      </defs>
+
+      <rect x="28" y="90" width="120" height="64" rx="12" className="fill-foreground" />
+      <text x="88" y="114" textAnchor="middle" className="fill-primary-foreground text-[11px] font-mono font-semibold">
+        {locale === "zh" ? "Admin" : "Admin"}
+      </text>
+      <text x="88" y="132" textAnchor="middle" className="fill-primary-foreground/70 text-[8px] font-mono">
+        {locale === "zh" ? "audit scope" : "audit scope"}
+      </text>
+      <text x="88" y="144" textAnchor="middle" className="fill-primary-foreground/70 text-[8px] font-mono">
+        {locale === "zh" ? "read role" : "read role"}
+      </text>
+
+      <rect x="196" y="70" width="152" height="104" rx="12" className="fill-secondary/35 stroke-border" strokeWidth="1" />
+      <text x="272" y="98" textAnchor="middle" className="fill-muted-foreground text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "Boundary" : "Boundary"}
+      </text>
+      {[
+        { y: 110, label: locale === "zh" ? "owner" : "owner" },
+        { y: 134, label: locale === "zh" ? "grant" : "grant" },
+        { y: 158, label: locale === "zh" ? "read-only" : "read-only" },
+      ].map((item) => (
+        <g key={item.label}>
+          <rect x="224" y={item.y} width="96" height="14" rx="5" className="fill-card stroke-border" strokeWidth="0.8" />
+          <text x="272" y={item.y + 9} textAnchor="middle" className="fill-muted-foreground text-[7px] font-mono">
+            {item.label}
+          </text>
+        </g>
+      ))}
+
+      <rect x="390" y="36" width="132" height="78" rx="12" className="fill-card stroke-border" strokeWidth="1" />
+      <text x="456" y="58" textAnchor="middle" className="fill-foreground text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "User A" : "User A"}
+      </text>
+      <text x="456" y="72" textAnchor="middle" className="fill-muted-foreground text-[8px] font-mono">
+        {locale === "zh" ? "Database" : "Database"}
+      </text>
+      <rect x="416" y="80" width="80" height="20" rx="6" className="fill-secondary/30 stroke-border" strokeWidth="1" />
+      <text x="456" y="93" textAnchor="middle" className="fill-foreground text-[8px] font-mono font-semibold">
+        {locale === "zh" ? "Tape Table" : "Tape Table"}
+      </text>
+
+      <rect x="390" y="126" width="132" height="78" rx="12" className="fill-card stroke-border" strokeWidth="1" />
+      <text x="456" y="148" textAnchor="middle" className="fill-foreground text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "User B" : "User B"}
+      </text>
+      <text x="456" y="162" textAnchor="middle" className="fill-muted-foreground text-[8px] font-mono">
+        {locale === "zh" ? "Database" : "Database"}
+      </text>
+      <rect x="416" y="170" width="80" height="20" rx="6" className="fill-secondary/30 stroke-border" strokeWidth="1" />
+      <text x="456" y="183" textAnchor="middle" className="fill-foreground text-[8px] font-mono font-semibold">
+        {locale === "zh" ? "Tape Table" : "Tape Table"}
+      </text>
+
+      <rect x="560" y="84" width="112" height="76" rx="12" className="fill-accent/10 stroke-accent" strokeWidth="1" />
+      <text x="616" y="108" textAnchor="middle" className="fill-accent text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "Audit" : "Audit"}
+      </text>
+      <text x="616" y="126" textAnchor="middle" className="fill-accent/70 text-[8px] font-mono">
+        {locale === "zh" ? "read-only" : "read-only"}
+      </text>
+      <text x="616" y="142" textAnchor="middle" className="fill-accent/70 text-[8px] font-mono">
+        {locale === "zh" ? "multi-user" : "multi-user"}
+      </text>
+
+      <line x1="148" y1="122" x2="196" y2="122" className="stroke-muted-foreground/40" strokeWidth="1" markerEnd="url(#acl-arr)" />
+
+      <line x1="348" y1="122" x2="366" y2="122" className="stroke-muted-foreground/35" strokeWidth="1" />
+      <line x1="366" y1="90" x2="366" y2="166" className="stroke-muted-foreground/25" strokeWidth="1" />
+      <line x1="366" y1="90" x2="390" y2="90" className="stroke-muted-foreground/35" strokeWidth="1" markerEnd="url(#acl-arr)" />
+      <line x1="366" y1="166" x2="390" y2="166" className="stroke-muted-foreground/35" strokeWidth="1" markerEnd="url(#acl-arr)" />
+
+      <line x1="522" y1="90" x2="540" y2="90" className="stroke-accent/60" strokeWidth="1" />
+      <line x1="522" y1="180" x2="540" y2="180" className="stroke-accent/60" strokeWidth="1" />
+      <line x1="540" y1="90" x2="540" y2="180" className="stroke-accent/35" strokeWidth="1" />
+      <line x1="540" y1="122" x2="560" y2="122" className="stroke-accent/60" strokeWidth="1" markerEnd="url(#acl-arr-a)" />
+
+      <line x1="560" y1="176" x2="672" y2="176" className="stroke-muted-foreground/20" strokeWidth="1" strokeDasharray="4 3" />
+      <text x="616" y="168" textAnchor="middle" className="fill-muted-foreground/45 text-[7px] font-mono">
+        {t("appendix.access.writeBlock")}
+      </text>
+    </svg>
   )
 }
 
@@ -147,13 +254,7 @@ function ObservabilityDiagram() {
         Tape
       </text>
 
-      <rect x="548" y="18" width="122" height="34" rx="7" className="fill-accent" />
-      <text x="609" y="40" textAnchor="middle" className="fill-accent-foreground text-[12px] font-mono font-semibold">
-        Web UI
-      </text>
-
       <line x1="148" y1="35" x2="198" y2="35" className="stroke-foreground" strokeWidth="1.2" markerEnd="url(#obs-arr)" />
-      <line x1="344" y1="35" x2="538" y2="35" className="stroke-accent" strokeWidth="1.2" markerEnd="url(#obs-arr-a)" />
 
       {[
         { x: 224, y: 82, label: locale === "zh" ? "anchor" : "anchor", className: "fill-accent/12 stroke-accent" },
@@ -170,42 +271,41 @@ function ObservabilityDiagram() {
       ))}
 
       <text x="276" y="70" textAnchor="middle" className="fill-muted-foreground/45 text-[9px] font-mono">
-        {locale === "zh" ? "append-only trace" : "append-only trace"}
+        {locale === "zh" ? "same append-only facts" : "same append-only facts"}
       </text>
 
-      <rect x="420" y="88" width="92" height="96" rx="10" className="fill-secondary/35 stroke-border" strokeWidth="1" />
-      <text x="466" y="108" textAnchor="middle" className="fill-muted-foreground text-[10px] font-mono font-semibold">
-        {locale === "zh" ? "filters" : "filters"}
+      <rect x="378" y="78" width="128" height="106" rx="12" className="fill-secondary/35 stroke-border" strokeWidth="1" />
+      <text x="442" y="100" textAnchor="middle" className="fill-muted-foreground text-[10px] font-mono font-semibold">
+        {locale === "zh" ? "derived views" : "derived views"}
       </text>
-      {["session", "tool", "event"].map((item, index) => (
+      {["timeline", "replay", "qa context"].map((item, index) => (
         <g key={item}>
-          <rect x="435" y={120 + index * 18} width="62" height="12" rx="4" className="fill-card stroke-border" strokeWidth="0.8" />
-          <text x="466" y={129 + index * 18} textAnchor="middle" className="fill-muted-foreground text-[7px] font-mono">
+          <rect x="400" y={114 + index * 20} width="84" height="14" rx="5" className="fill-card stroke-border" strokeWidth="0.8" />
+          <text x="442" y={123 + index * 20} textAnchor="middle" className="fill-muted-foreground text-[7px] font-mono">
             {item}
           </text>
         </g>
       ))}
 
-      {[
-        { y: 86, title: locale === "zh" ? "Timeline" : "Timeline", detail: locale === "zh" ? "turn / tool / event" : "turn / tool / event" },
-        { y: 126, title: locale === "zh" ? "Replay" : "Replay", detail: locale === "zh" ? "inspect exact path" : "inspect exact path" },
-        { y: 166, title: locale === "zh" ? "Usage" : "Usage", detail: locale === "zh" ? "token + anchor stats" : "token + anchor stats" },
-      ].map((panel) => (
-        <g key={panel.title}>
-          <rect x="556" y={panel.y} width="106" height="28" rx="6" className="fill-accent/10 stroke-accent" strokeWidth="1" />
-          <text x="568" y={panel.y + 12} className="fill-accent text-[9px] font-mono font-semibold">
-            {panel.title}
-          </text>
-          <text x="568" y={panel.y + 21} className="fill-accent/60 text-[7px] font-mono">
-            {panel.detail}
-          </text>
-        </g>
-      ))}
+      <rect x="548" y="104" width="108" height="28" rx="8" className="fill-accent/12 stroke-accent" strokeWidth="1" />
+      <text x="562" y="116" className="fill-accent text-[9px] font-mono font-semibold">
+        {locale === "zh" ? "Trace UI" : "Trace UI"}
+      </text>
+      <text x="562" y="125" className="fill-accent/65 text-[7px] font-mono">
+        {locale === "zh" ? "timeline / replay" : "timeline / replay"}
+      </text>
 
-      <line x1="328" y1="124" x2="420" y2="124" className="stroke-muted-foreground/35" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#obs-arr)" />
-      <line x1="512" y1="136" x2="556" y2="100" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
-      <line x1="512" y1="148" x2="556" y2="140" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
-      <line x1="512" y1="160" x2="556" y2="180" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
+      <rect x="548" y="144" width="108" height="28" rx="8" className="fill-secondary/40 stroke-border" strokeWidth="1" />
+      <text x="562" y="156" className="fill-foreground text-[9px] font-mono font-semibold">
+        {locale === "zh" ? "Ask Bub" : "Ask Bub"}
+      </text>
+      <text x="562" y="165" className="fill-muted-foreground text-[7px] font-mono">
+        {locale === "zh" ? "inspect / explain" : "inspect / explain"}
+      </text>
+
+      <line x1="328" y1="124" x2="378" y2="124" className="stroke-muted-foreground/35" strokeWidth="1" strokeDasharray="4 3" markerEnd="url(#obs-arr)" />
+      <line x1="506" y1="126" x2="548" y2="118" className="stroke-accent/55" strokeWidth="1" markerEnd="url(#obs-arr-a)" />
+      <line x1="506" y1="146" x2="548" y2="158" className="stroke-foreground/45" strokeWidth="1" markerEnd="url(#obs-arr)" />
     </svg>
   )
 }

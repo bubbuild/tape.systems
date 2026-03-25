@@ -4,7 +4,7 @@ Live: [https://tape.systems](https://tape.systems)
 
 A minimal site about constructing context from tape, practiced in [bub.build](https://bub.build).
 
-The site covers both the core context model and three natural extensions: observability, evaluation, and model training.
+The site covers both the core context model and four natural extensions: access control, observability, evaluation, and model training.
 
 References:
 
@@ -18,6 +18,7 @@ References:
 - Context Strategies: compact, summary, fork-merge
 - Advanced Collaboration: memory, teams
 - Appendix:
+    - access control via database-native tenant boundaries and audit reads
     - observability via replayable tape timelines
     - evaluation via anchor-bounded views, judges, and derived annotations
     - training via anchor-segmented trajectory export

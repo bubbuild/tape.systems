@@ -189,9 +189,9 @@ function SummaryDiagram() {
 
       {/* Arrow to next phase */}
       <line x1="565" y1="97" x2="630" y2="97" className="stroke-accent" strokeWidth="1.5" markerEnd="url(#sum-arrow)" />
-      <rect x="635" y="78" width="50" height="38" rx="6" className="fill-card stroke-border" strokeWidth="1" />
-      <text x="660" y="101" textAnchor="middle" className="fill-foreground text-[10px] font-mono">
-        {locale === "zh" ? "下一" : "next"}
+      <rect x="635" y="78" width="60" height="38" rx="6" className="fill-card stroke-border" strokeWidth="1" />
+      <text x="665" y="101" textAnchor="middle" className="fill-foreground text-[10px] font-mono">
+        {locale === "zh" ? "下一阶段" : "next"}
       </text>
 
       {/* Annotation */}

@@ -8,6 +8,7 @@ import { MinimalModel } from "@/components/minimal-model"
 import { CoreMechanisms } from "@/components/core-mechanisms"
 import { SessionModel } from "@/components/session-model"
 import { ContextStrategies } from "@/components/context-strategies"
+import { DagWorkflow } from "@/components/dag-workflow"
 import { AdvancedMemory } from "@/components/advanced-memory"
 import { Teams } from "@/components/teams"
 import { Appendix } from "@/components/appendix"
@@ -27,6 +28,7 @@ export default function Page() {
         <ContextStrategies />
         <AdvancedMemory />
         <Teams />
+        <DagWorkflow />
         <Appendix />
         <Conclusion />
       </main>

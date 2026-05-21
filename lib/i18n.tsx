@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  type ReactNode,
+} from "react";
 
-export type Locale = "zh" | "en"
+export type Locale = "zh" | "en";
 
 type Translations = {
-  [key: string]: { zh: string; en: string }
-}
+  [key: string]: { zh: string; en: string };
+};
 
 const translations: Translations = {
   // Nav
@@ -53,13 +59,25 @@ const translations: Translations = {
     en: "Four core primitives",
   },
   "model.tape": { zh: "Tape", en: "Tape" },
-  "model.tape.desc": { zh: "按时间增长的事实序列", en: "Chronological sequence of facts" },
+  "model.tape.desc": {
+    zh: "按时间增长的事实序列",
+    en: "Chronological sequence of facts",
+  },
   "model.entry": { zh: "Entry", en: "Entry" },
-  "model.entry.desc": { zh: "一条不可变的事实记录", en: "An immutable fact record" },
+  "model.entry.desc": {
+    zh: "一条不可变的事实记录",
+    en: "An immutable fact record",
+  },
   "model.anchor": { zh: "Anchor", en: "Anchor" },
-  "model.anchor.desc": { zh: "状态重建的逻辑起点", en: "Logical checkpoint for state reconstruction" },
+  "model.anchor.desc": {
+    zh: "状态重建的逻辑起点",
+    en: "Logical checkpoint for state reconstruction",
+  },
   "model.view": { zh: "View", en: "View" },
-  "model.view.desc": { zh: "面向任务装配的上下文窗口", en: "Task-oriented assembled context window" },
+  "model.view.desc": {
+    zh: "面向任务装配的上下文窗口",
+    en: "Task-oriented assembled context window",
+  },
 
   // Invariants
   "invariant.title": { zh: "不变量", en: "Invariants" },
@@ -230,6 +248,81 @@ const translations: Translations = {
     en: "Explicit conflict & dedup strategies required",
   },
 
+  // DAG Workflow
+  "dag.workflow.title": { zh: "DAG Workflow", en: "DAG Workflow" },
+  "dag.workflow.subtitle": {
+    zh: "把 topic 自动化拆成任务语义、行为约束、任务描述与运行时事实源",
+    en: "A topic automation model split into task semantics, behavioral constraints, task description, and runtime truth",
+  },
+  "dag.workflow.assembler.label": {
+    zh: "Task as View Assembler",
+    en: "Task as View Assembler",
+  },
+  "dag.workflow.assembler.beforeTopic": {
+    zh: "这里的 Task 是一个特殊的 View Assembler：一个 task 对应一个 ",
+    en: "Here, Task is a special View Assembler: one task maps to one ",
+  },
+  "dag.workflow.assembler.afterTopicBeforeTurn": {
+    zh: "，它把 Task Schema、Task Config、Task Harness 与 Task Description 装配成 runtime 可执行视图；DAG Node 则对应 topic 内的一次 ",
+    en: ", assembling Task Schema, Task Config, Task Harness, and Task Description into a runtime-executable view; each DAG Node maps to one ",
+  },
+  "dag.workflow.assembler.afterTurn": {
+    zh: " 边界。",
+    en: " boundary inside that topic.",
+  },
+  "dag.workflow.schema.title": { zh: "Task Schema", en: "Task Schema" },
+  "dag.workflow.schema.desc": {
+    zh: "描述任务结构：节点边界、依赖关系、产物契约和任务展示信息。",
+    en: "Declares task structure: node boundaries, dependencies, artifact contracts, and task presentation.",
+  },
+  "dag.workflow.schema.detail": {
+    zh: "它回答“这个任务按什么结构运行”。",
+    en: "It answers which structure this task runs through.",
+  },
+  "dag.workflow.config.title": { zh: "Task Config", en: "Task Config" },
+  "dag.workflow.config.desc": {
+    zh: "承载任务级稳定配置，例如运行默认值、业务规则、目标环境和外部系统约束。",
+    en: "Holds stable task-level configuration such as defaults, business rules, target environments, and external system constraints.",
+  },
+  "dag.workflow.config.detail": {
+    zh: "它回答“这个任务按什么规则运行”。",
+    en: "It answers which rules this task runs with.",
+  },
+  "dag.workflow.harness.title": { zh: "Task Harness", en: "Task Harness" },
+  "dag.workflow.harness.desc": {
+    zh: "约束 agent 的可执行行为，例如通过 scripts/*.feature 固定验收边界、运行路径和禁止事项。",
+    en: "Constrains executable agent behavior, for example with scripts/*.feature files that fix acceptance boundaries, run paths, and forbidden moves.",
+  },
+  "dag.workflow.harness.detail": {
+    zh: "它回答“agent 必须怎样做，不能怎样做”。",
+    en: "It answers what the agent must do and must not do.",
+  },
+  "dag.workflow.task.title": { zh: "Task Description", en: "Task Description" },
+  "dag.workflow.task.desc": {
+    zh: "承载单次 task 的业务说明、范围、口径、交付偏好和人为确认。",
+    en: "Captures one task's business brief, scope, interpretation, delivery preference, and human confirmation.",
+  },
+  "dag.workflow.task.detail": {
+    zh: "它回答“这一次具体要做什么”。",
+    en: "It answers what this run should do.",
+  },
+  "dag.workflow.source.title": {
+    zh: "Runtime Source of Truth",
+    en: "Runtime Source of Truth",
+  },
+  "dag.workflow.source.desc": {
+    zh: "topic 创建后，runtime 持有权威状态投影；DAG anchors 只记录摘要、审计和回查事件。",
+    en: "After topic creation, runtime owns the authoritative projection; DAG anchors only record summaries, audit events, and lookup checkpoints.",
+  },
+  "dag.workflow.source.detail": {
+    zh: "状态读 runtime snapshot；边界事件读 DAG anchor。",
+    en: "Read runtime snapshots for state; read DAG anchors for boundary events.",
+  },
+  "dag.workflow.diagram.label": {
+    zh: "Bee DAG workflow 抽象流向图",
+    en: "Bee DAG workflow abstraction diagram",
+  },
+
   // Advanced Memory
   "advanced.memory.title": { zh: "Memory", en: "Memory" },
   "advanced.memory.subtitle": {
@@ -290,19 +383,43 @@ const translations: Translations = {
     zh: "权限源头仍应是数据库对象本身。审计访问应使用受约束的只读角色，而不是复用 owner 身份。",
     en: "Keep the database objects themselves as the source of truth. Audit access should use constrained read-only roles instead of reusing the owner identity.",
   },
-  "appendix.access.ref": { zh: "database privileges", en: "database privileges" },
+  "appendix.access.ref": {
+    zh: "database privileges",
+    en: "database privileges",
+  },
   "appendix.access.audit": { zh: "租户审计视图", en: "tenant audit view" },
   "appendix.access.parent": { zh: "授权租户", en: "authorized tenant" },
   "appendix.access.child": { zh: "子帐号", en: "child account" },
   "appendix.access.db": { zh: "database ownership", en: "database ownership" },
-  "appendix.access.isolation": { zh: "database boundary", en: "database boundary" },
+  "appendix.access.isolation": {
+    zh: "database boundary",
+    en: "database boundary",
+  },
   "appendix.access.inherit": { zh: "table-level read", en: "table-level read" },
-  "appendix.access.auditDetail": { zh: "read-only tape audit", en: "read-only tape audit" },
-  "appendix.access.writeBlock": { zh: "no owner / no write", en: "no owner / no write" },
-  "appendix.access.policy": { zh: "reuse DB owner + GRANT", en: "reuse DB owner + GRANT" },
-  "appendix.access.detail1": { zh: "connect to child DB", en: "connect to child DB" },
-  "appendix.access.detail2": { zh: "select tape table / view", en: "select tape table / view" },
-  "appendix.access.detail3": { zh: "preserve DB isolation", en: "preserve DB isolation" },
+  "appendix.access.auditDetail": {
+    zh: "read-only tape audit",
+    en: "read-only tape audit",
+  },
+  "appendix.access.writeBlock": {
+    zh: "no owner / no write",
+    en: "no owner / no write",
+  },
+  "appendix.access.policy": {
+    zh: "reuse DB owner + GRANT",
+    en: "reuse DB owner + GRANT",
+  },
+  "appendix.access.detail1": {
+    zh: "connect to child DB",
+    en: "connect to child DB",
+  },
+  "appendix.access.detail2": {
+    zh: "select tape table / view",
+    en: "select tape table / view",
+  },
+  "appendix.access.detail3": {
+    zh: "preserve DB isolation",
+    en: "preserve DB isolation",
+  },
   "appendix.observability.title": { zh: "可观测性", en: "Observability" },
   "appendix.observability.desc": {
     zh: "tape 不只服务上下文装配，也可以保留 session、tool call 和运行事件。同一批 append-only facts 既能被 UI 回放，也能被 bub 读取并解释发生了什么。",
@@ -312,7 +429,10 @@ const translations: Translations = {
     zh: "上下文装配与可观测性消费的是同一条 append-only tape，所有出口都建立在 derived views 上。所以除了看 UI，也可以直接询问 bub。",
     en: "Context assembly and observability consume the same append-only tape, and every outlet is built from derived views. So besides the UI, you can ask bub directly.",
   },
-  "appendix.observability.ref": { zh: "bub architecture", en: "bub architecture" },
+  "appendix.observability.ref": {
+    zh: "bub architecture",
+    en: "bub architecture",
+  },
   "appendix.eval.title": { zh: "Eval", en: "Eval" },
   "appendix.eval.desc": {
     zh: "按 anchor 取片段，回放历史，检查决策；评分与标签作为派生事实写回。",
@@ -350,48 +470,51 @@ const translations: Translations = {
   "ref.1": { zh: "木匠，锤子，钉子", en: "Carpenter, Hammer, Nail" },
   "ref.2": { zh: "被缚的普罗米修斯", en: "Prometheus Bound" },
   "ref.3": { zh: "重新发明打孔纸带", en: "Reinventing the Punch Tape" },
-  "ref.4": { zh: "即时通讯与社会化评估", en: "Instant Messaging and Socialized Evaluation" },
+  "ref.4": {
+    zh: "即时通讯与社会化评估",
+    en: "Instant Messaging and Socialized Evaluation",
+  },
 
   // Footer
   "footer.desc": {
     zh: "tape + anchor + handoff: 上下文问题的统一模型",
     en: "tape + anchor + handoff: a unified model for context",
   },
-}
+};
 
 interface I18nContextType {
-  locale: Locale
-  toggleLocale: () => void
-  t: (key: string) => string
+  locale: Locale;
+  toggleLocale: () => void;
+  t: (key: string) => string;
 }
 
-const I18nContext = createContext<I18nContextType | null>(null)
+const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("en")
+  const [locale, setLocale] = useState<Locale>("en");
 
   const toggleLocale = useCallback(() => {
-    setLocale((prev) => (prev === "zh" ? "en" : "zh"))
-  }, [])
+    setLocale((prev) => (prev === "zh" ? "en" : "zh"));
+  }, []);
 
   const t = useCallback(
     (key: string) => {
-      const entry = translations[key]
-      if (!entry) return key
-      return entry[locale]
+      const entry = translations[key];
+      if (!entry) return key;
+      return entry[locale];
     },
     [locale]
-  )
+  );
 
   return (
     <I18nContext.Provider value={{ locale, toggleLocale, t }}>
       {children}
     </I18nContext.Provider>
-  )
+  );
 }
 
 export function useI18n() {
-  const context = useContext(I18nContext)
-  if (!context) throw new Error("useI18n must be used within I18nProvider")
-  return context
+  const context = useContext(I18nContext);
+  if (!context) throw new Error("useI18n must be used within I18nProvider");
+  return context;
 }

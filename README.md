@@ -16,6 +16,7 @@ References:
 - Mechanisms: append, anchor, handoff
 - Session Modeling: single, multi-turn, isolation, topic threading
 - Context Strategies: compact, summary, fork-merge
+- Sidecar Tape: support the main tape, add features, and serve downstream consumers
 - Advanced Collaboration: memory, teams
 - Appendix:
     - access control via database-native tenant boundaries and audit reads

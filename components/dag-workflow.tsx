@@ -46,7 +46,7 @@ export function DagWorkflow() {
     >
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="09"
+          number="10"
           title={t("dag.workflow.title")}
           subtitle={t("dag.workflow.subtitle")}
         />

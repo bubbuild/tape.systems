@@ -17,6 +17,7 @@ export function Navigation() {
     { key: "nav.mechanisms", href: "#mechanisms" },
     { key: "nav.sessions", href: "#sessions" },
     { key: "nav.strategies", href: "#strategies" },
+    { key: "nav.sidecar", href: "#sidecar" },
     { key: "nav.advanced", href: "#advanced" },
     { key: "nav.appendix", href: "#appendix" },
   ]
@@ -37,7 +38,7 @@ export function Navigation() {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
             <a
               key={item.key}

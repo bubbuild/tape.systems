@@ -10,7 +10,7 @@ export function Teams() {
     <section id="teams" className="py-20 md:py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="08"
+          number="09"
           title={t("teams.title")}
           subtitle={t("teams.subtitle")}
         />

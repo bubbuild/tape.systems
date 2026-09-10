@@ -19,6 +19,7 @@ const translations: Translations = {
   "nav.mechanisms": { zh: "核心机制", en: "Mechanisms" },
   "nav.sessions": { zh: "会话模型", en: "Sessions" },
   "nav.strategies": { zh: "上下文策略", en: "Strategies" },
+  "nav.sidecar": { zh: "旁路 Tape", en: "Sidecar" },
   "nav.advanced": { zh: "进阶", en: "Advanced" },
   "nav.appendix": { zh: "附录", en: "Appendix" },
 
@@ -51,6 +52,54 @@ const translations: Translations = {
 
   // Reading path
   "path.title": { zh: "阅读路径", en: "Reading Path" },
+
+  // Sidecar Tape
+  "sidecar.title": { zh: "Sidecar Tape：围绕主线扩展能力", en: "Sidecar Tape: Extending the Main Tape" },
+  "sidecar.subtitle": {
+    zh: "旁路 tape 可以帮助主线承载负载、支持扩展特性，也可以为下游提供适合消费的表达。",
+    en: "Companion tapes can carry part of the main tape’s load, support additional features, or provide representations for downstream consumers.",
+  },
+  "sidecar.intro": {
+    zh: "Main tape 保持连续记录，sidecar tape 使用相同的记录原语承载关联数据与状态。它如何读写、服务谁，由具体用途决定。",
+    en: "The main tape keeps a continuous record. Sidecar tapes use the same recording primitives for related data and state. Their purpose determines how they are read and written, and whom they serve.",
+  },
+  "sidecar.support.title": { zh: "辅助主线", en: "Support the main tape" },
+  "sidecar.support.desc": {
+    zh: "分担数据与上下文负载，让 main 保持轻量、可持续推进，需要时再取用旁路内容。",
+    en: "Carry part of the data and context load so the main tape stays lightweight and can keep progressing. Retrieve sidecar content when needed.",
+  },
+  "sidecar.support.example": { zh: "例如 spill", en: "Example: spill" },
+  "sidecar.extend.title": { zh: "提供特性支持", en: "Support additional features" },
+  "sidecar.extend.desc": {
+    zh: "在主线上叠加局部记录与状态，支持隔离、组合与合并等语义。",
+    en: "Layer local records and state over the main tape to support isolation, composition, and merging.",
+  },
+  "sidecar.extend.example": { zh: "例如 overlay 的 fork / merge", en: "Example: fork / merge via overlays" },
+  "sidecar.consume.title": { zh: "面向下游消费", en: "Serve downstream consumers" },
+  "sidecar.consume.desc": {
+    zh: "将主线记录组织成下游需要的表达，可以单向消费、独立交付，无须回写 main。",
+    en: "Organize main-tape records into representations that downstream systems can consume independently, without requiring a return path to the main tape.",
+  },
+  "sidecar.consume.example": { zh: "例如格式转换、导出", en: "Examples: format conversion, export" },
+  "sidecar.key": {
+    zh: "这些作用可以组合。Sidecar tape 的数据流向与消费路径由用途决定；参与 context 或回写主线都不是统一前提。",
+    en: "These roles can be combined. Each use determines its own data flow and consumers; entering model context or writing back to the main tape is optional.",
+  },
+  "sidecar.diagram.title": { zh: "Sidecar Tape 的三种可组合作用", en: "Three composable roles for sidecar tapes" },
+  "sidecar.diagram.desc": {
+    zh: "Main tape 保持连续记录。辅助旁路承载部分负载并供按需取用；特性旁路基于主线叠加状态并按语义合并；消费旁路派生或转换记录，单向交付下游系统。三种作用不是顺序步骤。",
+    en: "The main tape keeps a continuous record. A supporting sidecar carries load for retrieval as needed. A feature sidecar layers state over the main tape and merges according to its semantics. A consumption sidecar derives or converts records for one-way delivery downstream. These roles are not sequential stages.",
+  },
+  "sidecar.main": { zh: "保持连续记录", en: "A continuous record" },
+  "sidecar.entry": { zh: "新 entry", en: "new entry" },
+  "sidecar.offload": { zh: "承载部分负载", en: "Carry part of the load" },
+  "sidecar.read": { zh: "按需取用", en: "Retrieve as needed" },
+  "sidecar.overlay": { zh: "基于主线叠加", en: "Layer over main" },
+  "sidecar.merge": { zh: "按语义合并", en: "Merge by semantics" },
+  "sidecar.derive": { zh: "派生 / 转换", en: "Derive / convert" },
+  "sidecar.mainSupport": { zh: "服务于主线的承载与能力", en: "Support the main tape’s capacity and capabilities" },
+  "sidecar.downstream": { zh: "下游系统 / 消费者", en: "Downstream consumers" },
+  "sidecar.scroll": { zh: "可左右滚动查看完整图示。", en: "Scroll horizontally to view the full diagram." },
 
   // Minimal Model
   "model.title": { zh: "最小模型", en: "The Minimal Model" },

@@ -10,7 +10,7 @@ export function AdvancedMemory() {
     <section id="advanced" className="py-20 md:py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-4xl">
         <SectionHeader
-          number="07"
+          number="08"
           title={t("advanced.memory.title")}
           subtitle={t("advanced.memory.subtitle")}
         />

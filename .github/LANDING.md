@@ -39,8 +39,12 @@ repository dispatch payload, replacing `123` with the actual alert number:
 {"event_type":"dependabot_alert","client_payload":{"alert_number":123}}
 ```
 
-These workflows do not install a receiver. Landing reads current alert state;
-fixed or dismissed alerts reconcile tracked work without a new upgrade.
+These workflows do not install a receiver; real-time alert delivery remains
+unavailable until one is configured. `dependabot_alert` is not a native Actions
+trigger: it is only the external `repository_dispatch` relay described above.
+Landing reads current alert state. Open alerts select bump; fixed or dismissed
+alerts intentionally select triage to reconcile tracked dependency work without
+a new upgrade. This reconciliation is part of dependency duty, not general triage.
 Listeners must exist on the default branch to receive events.
 
 References: [Landing integration](https://github.com/bubbuild/landing/blob/9014baa64f82893dc194a3f1e31391737f68c426/docs/guides/github.md),

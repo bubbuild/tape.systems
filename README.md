@@ -51,7 +51,7 @@ The production build is exported to `out/` for GitHub Pages.
 The site is deployed via GitHub Actions to GitHub Pages.
 Custom domain: `tape.systems`.
 
-Landing runs weekly or manually to open draft dependency updates and repair eligible dependency PRs after failed checks.
+[Landing](https://getlanding.dev) runs weekly or manually to open draft dependency updates and repair eligible dependency PRs after failed checks.
 Real-time security alert handling requires an external receiver; resolved alerts reconcile existing dependency work.
 
 ## License

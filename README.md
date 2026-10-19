@@ -51,6 +51,10 @@ The production build is exported to `out/` for GitHub Pages.
 The site is deployed via GitHub Actions to GitHub Pages.
 Custom domain: `tape.systems`.
 
+Landing maintains dependencies weekly or on manual dispatch and repairs eligible failed dependency PRs.
+Real-time security alerts require an external signed-webhook receiver forwarding `repository_dispatch` (`dependabot_alert`, `client_payload.alert_number`); no receiver is included.
+Fixed or dismissed alerts reconcile dependency work through Landing’s triage path.
+
 ## License
 
 [Apache-2.0](./LICENSE)

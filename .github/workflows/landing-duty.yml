@@ -30,6 +30,7 @@ jobs:
     concurrency:
       group: landing-dependencies-${{ github.repository_id }}-${{ github.event.client_payload.alert_number || github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.head_branch || 'maintenance' }}
       cancel-in-progress: false
+      queue: max
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
@@ -61,7 +62,7 @@ jobs:
         if: github.event_name == 'workflow_run' && startsWith(github.event.workflow_run.head_branch, 'deps/landing-')
         run: echo "LANDING_PUBLISHING_ACTOR=$(gh api graphql -f query='{viewer{login}}' --jq .data.viewer.login)" >> "$GITHUB_ENV"
       - name: Maintain dependencies
-        uses: bubbuild/landing@9014baa64f82893dc194a3f1e31391737f68c426
+        uses: bubbuild/landing@main
         env:
           LANDING_MODEL: ${{ vars.LANDING_MODEL }}
           LANDING_API_KEY: ${{ secrets.LANDING_API_KEY }}

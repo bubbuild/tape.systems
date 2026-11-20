@@ -36,19 +36,10 @@ const translations: Translations = {
     zh: "一个面向长周期、多团队协作的统一事实模型。",
     en: "A unified fact model for long-running, multi-team work.",
   },
-  "hero.subtitle.line2Prefix": {
-    zh: "在 ",
-    en: "Practiced in ",
-  },
-  "hero.subtitle.line2Between": {
-    zh: " 践行，源码在",
-    en: ", ",
-  },
-  "hero.subtitle.source": {
-    zh: "这里",
-    en: "view source",
-  },
   "hero.cta": { zh: "开始探索", en: "Explore" },
+
+  // Adopters
+  "adopters.label": { zh: "实现", en: "Implementations" },
 
   // Reading path
   "path.title": { zh: "阅读路径", en: "Reading Path" },

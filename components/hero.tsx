@@ -1,6 +1,7 @@
 "use client"
 
 import { useI18n } from "@/lib/i18n"
+import { Adopters } from "./adopters"
 
 export function Hero() {
   const { t } = useI18n()
@@ -37,40 +38,21 @@ export function Hero() {
         {/* Subtitle */}
         <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed text-center text-pretty max-w-md">
           <span>{t("hero.subtitle.line2")}</span>
-          <br />
+          <br className="hidden sm:inline" />{" "}
           <span>{t("hero.subtitle.line1")}</span>
-          <br />
-          <span>
-            {t("hero.subtitle.line2Prefix")}
-            <a
-              href="https://bub.build"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors"
-            >
-              bub.build
-            </a>
-            {t("hero.subtitle.line2Between")}
-            <a
-              href="https://github.com/bubbuild/bub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors"
-            >
-              {t("hero.subtitle.source")}
-            </a>
-          </span>
         </p>
         {/* CTA */}
         <a
           href="#reading-path"
-          className="mt-10 inline-flex items-center gap-2 rounded-md bg-foreground text-background px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+          className="mt-10 inline-flex items-center gap-2 rounded-md bg-foreground text-background px-6 py-3 text-sm font-medium hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t("hero.cta")}
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-background">
             <path d="M7 2v10M3.5 8.5L7 12l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+
+        <Adopters />
       </div>
 
       {/* Scroll hint */}
